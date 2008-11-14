@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<IntlRateResponse>
+  <Package ID="0">
+    <Prohibitions>Currency is not admitted in registered items. 
+    Radioactive materials.</Prohibitions>
+    <Restrictions>None</Restrictions>
+    <Observations>1. The U.S. Virgin Islands are a United States overseas possession comprised of the islands of St. Thomas, St. Croix, and St. John. Mailpieces destined for any of those islands are subject to domestic postage rates, mail classification definitions, preparation requirements, weight and size limits, ZIP Code specifications, markings and endorsements, and other mailing conditions that are referenced in the Domestic Mail Manual (DMM).
+    2. The British Virgin Islands are a foreign destination comprised of the islands of Anegada, Tortola, Jost Van Dyke, Peter Island, and Virgin Gorda. Mailpieces destined for any of those islands are subject to international postage rates, mail classification definitions, preparation requirements, weight and size limits, addressing standards, customs form requirements, and other country-specific conditions for mailing that are referenced in the International Mail Manual (IMM).</Observations>
+    <CustomsForms>First-Class Mail International items and Priority Mail International flat-rate envelopes: 
+    PS Form 2976 or 2976-A (see 123.61)
+    Priority Mail International parcels:
+    PS Form 2976-A inside 2976-E (envelope)</CustomsForms>
+    <ExpressMail>Not Available</ExpressMail>
+    <AreasServed>Please reference Express Mail for Areas Served.</AreasServed>
+    <Service ID="4">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>85.00</Postage>
+      <SvcCommitments>1 - 3 Days</SvcCommitments>
+      <SvcDescription>Global Express Guaranteed</SvcDescription>
+      <MaxDimensions>Max. length 46", width 35", height 46" and max. length plus girth 108"</MaxDimensions>
+      <MaxWeight>70</MaxWeight>
+    </Service>
+    <Service ID="6">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>85.00</Postage>
+      <SvcCommitments>1 - 3 Days</SvcCommitments>
+      <SvcDescription>Global Express Guaranteed Non-Document Rectangular</SvcDescription>
+      <MaxDimensions>Max. length 46", width 35", height 46" and max. length plus girth 108"</MaxDimensions>
+      <MaxWeight>70</MaxWeight>
+    </Service>
+    <Service ID="7">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>85.00</Postage>
+      <SvcCommitments>1 - 3 Days</SvcCommitments>
+      <SvcDescription>Global Express Guaranteed Non-Document Non-Rectangular</SvcDescription>
+      <MaxDimensions>Max. length 46", width 35", height 46" and max. length plus girth 108"</MaxDimensions>
+      <MaxWeight>70</MaxWeight>
+    </Service>
+    <Service ID="12">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>85.00</Postage>
+      <SvcCommitments>1 - 3 Days</SvcCommitments>
+      <SvcDescription>USPS GXG Envelopes</SvcDescription>
+      <MaxDimensions>Cardboard envelope has a dimension of 9 1/2" X 12 1/2" and GXG tyvek envelope has a dimension of 12 1/2" X 15 1/2"</MaxDimensions>
+      <MaxWeight>70</MaxWeight>
+    </Service>
+    <Service ID="2">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>37.90</Postage>
+      <SvcCommitments>6 - 10 Days</SvcCommitments>
+      <SvcDescription>Priority Mail International</SvcDescription>
+      <MaxDimensions>Max. length 42", Max length plus girth combined 79"</MaxDimensions>
+      <MaxWeight>44</MaxWeight>
+    </Service>
+    <Service ID="9">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>38.95</Postage>
+      <SvcCommitments>6 - 10 Days</SvcCommitments>
+      <SvcDescription>Priority Mail International Flat-Rate Box</SvcDescription>
+      <MaxDimensions>USPS-supplied Priority Mail flat-rate box. Maximum weight 20 pounds.</MaxDimensions>
+      <MaxWeight>20</MaxWeight>
+    </Service>
+    <Service ID="11">
+      <Pounds>5</Pounds>
+      <Ounces>10</Ounces>
+      <Machinable>false</Machinable>
+      <MailType>PACKAGE</MailType>
+      <Country>BRITISH VIRGIN ISLANDS</Country>
+      <Postage>49.95</Postage>
+      <SvcCommitments>6 - 10 Days</SvcCommitments>
+      <SvcDescription>Priority Mail International Large Flat-Rate Box</SvcDescription>
+      <MaxDimensions>USPS-supplied Priority Mail Large flat-rate box. Maximum weight 20 pounds.</MaxDimensions>
+      <MaxWeight>20</MaxWeight>
+    </Service>
+  </Package>
+</IntlRateResponse>
