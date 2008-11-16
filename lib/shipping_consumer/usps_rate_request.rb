@@ -12,7 +12,7 @@
 # * :weight*
 # * :width
 # * :zip*
-# * :country    (for international requests)
+# * :country               (only required for international requests)
 # === Required rules summary
 # Width, Length, Height, and Girth Required when :service => priority and :size => large
 # 
@@ -27,8 +27,8 @@
 # http://www.usps.com/webtools/htm/Rate-Calculators-v2-1.htm
 class USPSRateRequest < Consumer::Request
   include ShippingConsumer
-  
   response_class "Rate"
+  yaml_defaults "shipping_consumer.yml", "usps"
   
   error_paths({
     :root    => "//Error",
@@ -36,32 +36,40 @@ class USPSRateRequest < Consumer::Request
     :message => "//Description"
   })
   
-  yaml_defaults "shipping_consumer.yml", "usps"
-  
   def required
     ret = [
       :user_id,
-      :sender_zip,
-      :service,
       :weight
     ]
     
     if self.international?
       ret << :country
-      ret << :intl_mail_type
+      ret << :mail_type
     else
-      ret << :zip 
+      ret << :zip
+      ret << :sender_zip
+      ret << :service
     end
     
     return ret
   end
   
-  defaults({
-    :service => "all",
-    :machinable => "false",
-    :size => "regular",
-    :intl_mail_type => "Package",
-  })
+  def defaults
+    ret = {
+      :service => "all",
+      :machinable => "false",
+      :size => "regular",
+    }
+    
+    if self.international?
+      ret[:mail_type] =  "Package"
+      ret[:request_type] = :IntlRate
+    else # domestic
+      ret[:request_type] = :RateV3
+    end
+    
+    return ret
+  end
   
   # they have a test url, but it's crippled and acts different than the production url.
   url "http://production.shippingapis.com/ShippingAPI.dll"
@@ -122,18 +130,15 @@ class USPSRateRequest < Consumer::Request
     :RateV3
   ]
   
-  def to_xml
-    pounds, ounces = Helper.weight_in_lbz_oz(@weight)
+  def before_to_xml
+    @pounds, @ounces = Helper.weight_in_lbz_oz(@weight)
+
     if self.international?
-      request_type = :IntlRate
-      @mail_type = @intl_mail_type
       @zip = nil
-      @sender_zip = nil
       @size = nil
       @service = nil
+      @sender_zip = nil
       @first_class_mail_type = nil
-    else
-      request_type = :RateV3
     end
     
     Helper.upcase!(
@@ -147,17 +152,19 @@ class USPSRateRequest < Consumer::Request
       @sender_zip,
       @zip
     )
-    
+  end
+  
+  def to_xml
     xml = begin
       b.instruct!
       
-      b.tag!("#{request_type}Request", :USERID => @user_id) {
+      b.tag!("#{@request_type}Request", :USERID => @user_id) {
         b.Package(:ID => "0") {
           b.Service @service
           b.ZipOrigination @sender_zip
           b.ZipDestination @zip
-          b.Pounds pounds
-          b.Ounces ounces
+          b.Pounds @pounds
+          b.Ounces @ounces
           b.Size @size
           b.Machinable @machinable
           b.MailType @mail_type
@@ -168,7 +175,7 @@ class USPSRateRequest < Consumer::Request
       }
     end
     
-    return "API=#{request_type}&XML=" + xml
+    return "API=#{@request_type}&XML=" + xml
   end
   
   def international?

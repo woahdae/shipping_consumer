@@ -26,12 +26,14 @@
 # http://www.ups.com/gec/techdocs/pdf/dtk_RateXML_V1.zip
 class UPSRateRequest < Consumer::Request
   response_class "Rate"
+  yaml_defaults "shipping_consumer.yml", "ups"
+
   error_paths({
     :root    => "//Error",
     :code    => "//ErrorCode",
     :message => "//ErrorDescription"
   })
-  yaml_defaults "shipping_consumer.yml", "ups"
+
   def required
     ret = [
       :access_license_number,
@@ -114,9 +116,11 @@ class UPSRateRequest < Consumer::Request
     'retail' => '04'
   }
   
-  def to_xml
+  def before_to_xml
     @request_type = @service == "all" ? "Shop" : "Rate"
-    
+  end
+  
+  def to_xml
     b.instruct!
 
     b.AccessRequest {

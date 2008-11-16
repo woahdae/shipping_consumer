@@ -2,6 +2,16 @@ require File.dirname(__FILE__) + "/spec_helper"
 
 describe UPSRateRequest do
 
+  it "creates xml" do
+    request = UPSRateRequest.new({
+      :weight => "5.6",
+      :country => "US",
+      :zip => "98105"
+    })
+    xml = request.to_xml_etc
+    xml.should =~ /\<\?xml/
+  end
+
   if ENV['DO_IT_LIVE']
     
     it "should get live rates" do
