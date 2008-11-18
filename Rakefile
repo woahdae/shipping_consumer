@@ -55,3 +55,13 @@ task :make_spec do
     file.puts spec.to_ruby
   end
 end
+
+desc "update country codes as per ISO standard"
+task :update_country_codes do
+  require 'net/http'
+  require 'active_support'
+  require 'yaml'
+  resp = Net::HTTP.get(URI.parse("http://www.iso.org/iso/list-en1-semic-2.txt"))
+  yaml = "# " + resp.gsub(/(.*?);/) { $1.titleize + ": "}
+  File.open("config/country_codes.yml","w") {|file| file << yaml}
+end

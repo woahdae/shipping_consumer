@@ -26,10 +26,20 @@ describe USPSRateRequest do
       $DEBUG = true
       rates = USPSRateRequest.new({
         :weight => "5.6",
-        :country => "British Virgin Islands"
+        :country => "VG"
       }).do
       rates.should_not be_blank
     end
+    
+    it "should get international rates to one of USPS's non-ISO countries" do
+      $DEBUG = true
+      rates = USPSRateRequest.new({
+        :country => "BA",
+        :weight => "5.6"
+      }).do
+      rates.size.should_not be_blank
+    end
+    
   end
 
 end

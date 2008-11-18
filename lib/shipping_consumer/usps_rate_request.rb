@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/rate_request'
+
 # === Attributes (& defaults, * = required)
 # * :first_class_mail_type
 # * :height
@@ -12,7 +14,7 @@
 # * :weight*
 # * :width
 # * :zip*
-# * :country               (only required for international requests)
+# * :country               two letter code (only required for international requests)
 # === Required rules summary
 # Width, Length, Height, and Girth Required when :service => priority and :size => large
 # 
@@ -45,7 +47,7 @@ class USPSRateRequest < Consumer::Request
     if self.international?
       ret << :country
       ret << :mail_type
-    else
+    else # domestic
       ret << :zip
       ret << :sender_zip
       ret << :service
@@ -85,7 +87,7 @@ class USPSRateRequest < Consumer::Request
     :online,
     :all
   ]
-
+  
   # Use to specify special containers or container attributes that may affect postage; otherwise, leave blank. 
   # Default: VARIABLE
   PACKAGES = [
@@ -113,6 +115,49 @@ class USPSRateRequest < Consumer::Request
     "Envelope"
   ]
   
+  # You can get these from http://www.usps.com/webtools/htm/RateCalculatorsv20.htm.
+  # Copy/paste the right section, and if it helps I did a find/replace using 
+  # /([0-9]{1,2})\s+?([\w \/\-\(\)]+?)\n/ to find and '$1' => '$2', to replace
+  MAIL_CLASSES = {
+    "0"  => "First-Class",
+    "1"  => "Priority Mail",
+    "2"  => "Express Mail Hold for Pickup",
+    "3"  => "Express Mail PO to Addressee",
+    "4"  => "Parcel Post",
+    "5"  => "Bound Printed Matter",
+    "6"  => "Media Mail",
+    "7"  => "Library",
+    "12" => "First-Class Postcard Stamped",
+    "13" => "Express Mail Flat-Rate Envelope",
+    "16" => "Priority Mail Flat-Rate Envelope",
+    "17" => "Priority Mail Flat-Rate Box",
+    "18" => "Priority Mail Keys and IDs",
+    "19" => "First-Class Keys and IDs",
+    "22" => "Priority Mail Flat0Rate Large Box",
+    "23" => "Express Mail Sunday/Holiday",
+    "25" => "Express Mail Flat-Rate Envelope Sunday/Holiday",
+    "27" => "Express Mail Flat-Rate Envelope Hold For Pickup"
+  }
+  
+  INTL_MAIL_CLASSES = {
+    "1"  => "Express Mail International",
+    "2"  => "Priority Mail International",
+    "4"  => "Global Express Guaranteed (Document and Non-document)",
+    "5"  => "Global Express Guaranteed Document used",
+    "6"  => "Global Express Guaranteed Non-Document Rectangular shape",
+    "7"  => "Global Express Guaranteed Non-Document Non-Rectangular",
+    "8"  => "Priority Mail Flat Rate Envelope",
+    "9"  => "Priority Mail Flat Rate Box",
+    "10" => "Express Mail International Flat Rate Envelope",
+    "11" => "Priority Mail Large Flat Rate Box",
+    "12" => "Global Express Guaranteed Envelope",
+    "13" => "First Class Mail International Letters",
+    "14" => "First Class Mail International Flats",
+    "15" => "First Class Mail International Parcels",
+    "21" => "PostCards"
+  }
+  
+  
   # May be left blank in situations that do not require a Size. Defined as 
   # follows: 
   # * REGULAR: package length plus girth is 84 inches or less; 
@@ -130,15 +175,53 @@ class USPSRateRequest < Consumer::Request
     :RateV3
   ]
   
+  NON_ISO_CODES = {
+    "BA" => "Bosnia-Herzegovina",
+    "CD" => "Congo, Democratic Republic of the",
+    "CG" => "Congo (Brazzaville),Republic of the",
+    "CI" => "Côte d'Ivoire (Ivory Coast)",
+    "CK" => "Cook Islands (New Zealand)",
+    "FK" => "Falkland Islands",
+    "GB" => "Great Britain and Northern Ireland",
+    "GE" => "Georgia, Republic of",
+    "IR" => "Iran",
+    "KN" => "Saint Kitts (St. Christopher and Nevis)",
+    "KP" => "North Korea (Korea, Democratic People's Republic of)",
+    "KR" => "South Korea (Korea, Republic of)",
+    "LA" => "Laos",
+    "LY" => "Libya",
+    "MC" => "Monaco (France)",
+    "MD" => "Moldova",
+    "MK" => "Macedonia, Republic of",
+    "MM" => "Burma",
+    "PN" => "Pitcairn Island",
+    "RU" => "Russia",
+    "SK" => "Slovak Republic",
+    "TK" => "Tokelau (Union) Group (Western Samoa)",
+    "TW" => "Taiwan",
+    "TZ" => "Tanzania",
+    "VA" => "Vatican City",
+    "VG" => "British Virgin Islands",
+    "VN" => "Vietnam",
+    "WF" => "Wallis and Futuna Islands",
+    "WS" => "Western Samoa"
+  }
+  
+  USPS_COUNTRY_CODES = RateRequest::COUNTRY_CODES.merge(NON_ISO_CODES)
+  
   def before_to_xml
     @pounds, @ounces = Helper.weight_in_lbz_oz(@weight)
 
+    # USPS really doesn't like extraneous data
     if self.international?
       @zip = nil
       @size = nil
       @service = nil
       @sender_zip = nil
       @first_class_mail_type = nil
+      @country = USPS_COUNTRY_CODES[@country]
+    else
+      @country = nil
     end
     
     Helper.upcase!(
