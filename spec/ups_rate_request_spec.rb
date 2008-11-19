@@ -1,14 +1,16 @@
 require File.dirname(__FILE__) + "/spec_helper"
 
 describe UPSRateRequest do
-
-  it "creates xml" do
-    request = UPSRateRequest.new({
+  before(:each) do
+    @request = UPSRateRequest.new({
       :weight => "5.6",
       :country => "US",
       :zip => "98105"
     })
-    xml = request.to_xml_etc
+  end
+
+  it "creates xml" do
+    xml = @request.to_xml_etc
     xml.should =~ /\<\?xml/
   end
 
@@ -16,11 +18,7 @@ describe UPSRateRequest do
     
     it "should get live rates" do
       $DEBUG = true # spit out xml for the request & response
-      rates = UPSRateRequest.new({
-        :zip => "98125",
-        :country => "US",
-        :weight => "5.00",
-      }).do
+      @request.do
       rates.should_not be_blank
     end
     

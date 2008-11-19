@@ -7,7 +7,15 @@ class Rate
     :price => "TotalCharges/MonetaryValue",
     # :service => "Service",
     :code => "Service/Code"
-  }) {|instance| instance.carrier = "UPS" }
+  }) do |instance, node|
+    instance.carrier = "UPS"
+    
+    country_info = node.find_first("//RatingServiceSelectionResponse/Response/TransactionReference/CustomerContext").content
+    country_info =~ /(\w+) to (\w+)/
+    origin = $1
+    destination = $2
+    instance.service = UPSRateRequest.service_from_code(origin, destination, instance.code)
+  end
 
   # USPS
   map(:all, "//RateV3Response/Package/Postage", {

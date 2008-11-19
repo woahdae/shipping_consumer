@@ -2,7 +2,7 @@
 <RatingServiceSelectionResponse>
   <Response>
     <TransactionReference>
-      <CustomerContext>Rating and Service</CustomerContext>
+      <CustomerContext>US to US</CustomerContext>
       <XpciVersion>1.0001</XpciVersion>
     </TransactionReference>
     <ResponseStatusCode>1</ResponseStatusCode>

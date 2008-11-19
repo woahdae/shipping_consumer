@@ -91,7 +91,129 @@ class UPSRateRequest < Consumer::Request
   }
   
   # UPS-Specific types
+  
+  ### Begin shipping codes. From page 99 of the doc PDF.
+  
+  US_DOMESTIC_CODES = {
+    "01" => "UPS Next Day Air",
+    "02" => "UPS Second Day Air",
+    "03" => "UPS Ground",
+    "12" => "UPS Three-Day Select",
+    "13" => "UPS Next Day Air Saver",
+    "14" => "UPS Next Day Air Early A.M.",
+    "59" => "UPS Second Day Air A.M.",
+    "65" => "UPS Saver"
+  }
+  
+  US_ORIGIN_CODES = {
+    "01" => "UPS Next Day Air",
+    "02" => "UPS Second Day Air",
+    "03" => "UPS Ground",
+    "07" => "UPS Worldwide Express",
+    "08" => "UPS Worldwide Expedited",
+    "11" => "UPS Standard",
+    "12" => "UPS Three-Day Select",
+    "14" => "UPS Next Day Air Early A.M.",
+    "54" => "UPS Worldwide Express Plus",
+    "59" => "UPS Second Day Air A.M.",
+    "65" => "UPS Saver"
+  }
 
+  PUERTO_RICO_ORIGIN_CODES = {
+    "01" => "UPS Next Day Air",
+    "02" => "UPS Second Day Air",
+    "03" => "UPS Ground",
+    "07" => "UPS Worldwide Express",
+    "08" => "UPS Worldwide Expedited",
+    "14" => "UPS Next Day Air Early A.M.",
+    "54" => "UPS Worldwide Express Plus",
+    "65" => "UPS Saver"
+  }
+
+  CANADA_ORIGIN_CODES = {
+    "01" => "UPS Express",
+    "02" => "UPS Expedited",
+    "07" => "UPS Worldwide Express",
+    "08" => "UPS Worldwide Expedited",
+    "11" => "UPS Standard",
+    "12" => "UPS Three-Day Select",
+    "13" => "UPS Saver",
+    "14" => "UPS Express Early A.M.",
+    "54" => "UPS Worldwide Express Plus",
+    "65" => "UPS Saver"
+  }
+  
+  MEXICO_ORIGIN_CODES = {
+    "07" => "UPS Express",
+    "08" => "UPS Expedited",
+    "54" => "UPS Express Plus",
+    "65" => "UPS Saver"
+  }
+
+  POLISH_DOMESTIC_CODES = {
+    "07" => "UPS Express",
+    "08" => "UPS Expedited",
+    "11" => "UPS Standard",
+    "54" => "UPS Worldwide Express Plus",
+    "65" => "UPS Saver",
+    "82" => "UPS Today Standard",
+    "83" => "UPS Today Dedicated Courrier",
+    "84" => "UPS Today Intercity",
+    "85" => "UPS Today Express",
+    "86" => "UPS Today Express Saver"
+  }
+  
+  EU_ORIGIN_CODES = {
+    "07" => "UPS Express",
+    "08" => "UPS Expedited",
+    "11" => "UPS Standard",
+    "54" => "UPS Worldwide Express Plus",
+    "65" => "UPS Saver"
+  }
+
+  OTHER_INTL_ORIGIN_CODES = {
+    "07" => "UPS Express",
+    "08" => "UPS Worldwide Expedited",
+    "11" => "UPS Standard",
+    "54" => "UPS Worldwide Express Plus",
+    "65" => "UPS Saver"
+  }
+
+  FREIGHT_CODES = {
+    "TDCB" => "Trade Direct Cross Border",
+    "TDA"  => "Trade Direct Air",
+    "TDO"  => "Trade Direct Ocean",
+    "308"  => "UPS Freight LTL",
+    "309"  => "UPS Freight LTL Guaranteed",
+    "310"  =>  "UPS Freight LTL Urgent"
+  }
+  
+  def self.service_from_code(origin, destination, code)
+    services = case origin
+    when "US"
+      destination == "US" ? US_DOMESTIC_CODES : US_ORIGIN_CODES
+    when "PR"
+      PUERTO_RICO_ORIGIN_CODES
+    when "CA"
+      CANADA_ORIGIN_CODES
+    when "MX"
+      MEXICO_ORIGIN_CODES
+    when "PL"
+      destination == "PL" ? POLISH_DOMESTIC_CODES : OTHER_INTL_ORIGIN_CODES
+    when *EU_COUNTRY_CODES
+      EU_ORIGIN_CODES
+    else
+      OTHER_INTL_ORIGIN_CODES
+    end
+    
+    return services[code]
+  end
+  
+  
+  ### End shipping codes ###
+  
+  EU_COUNTRY_CODES = ["GB", "AT", "BE", "BG", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"]
+  
   PAYMENT_TYPES = {
     'prepaid' => 'Prepaid',
     'consignee' => 'Consignee',
@@ -134,7 +256,7 @@ class UPSRateRequest < Consumer::Request
     b.RatingServiceSelectionRequest { 
       b.Request {
         b.TransactionReference {
-          b.CustomerContext 'Rating and Service'
+          b.CustomerContext "#{@sender_country} to #{@country}"
           b.XpciVersion API_VERSION
         }
         b.RequestAction 'Rate'
