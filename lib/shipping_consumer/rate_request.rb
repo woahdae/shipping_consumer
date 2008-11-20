@@ -1,6 +1,17 @@
 # A common interface for the different rates.
 class RateRequest
+  # There's a list of country codes in config/country_codes.yml generated
+  # directly from the ISO website (http://www.iso.org/iso/list-en1-semic-2.txt)
+  # 
+  # You can re-generate that list with the update_country_codes rake task
+  COUNTRY_CODES = YAML.load(
+    File.read(
+      File.dirname(__FILE__) + "/../../config/country_codes.yml"
+    )
+  ).invert
+
   ##
+  # Gets all Rates from all carriers for the given options
   # === Options
   # Most options will be passed right in to the specific carrier rate reqest.
   # If it's not listed here but it is in the carrier rate request, putting
@@ -14,20 +25,11 @@ class RateRequest
     return usps_rates + ups_rates
   end
   
-  def self.get(carrier, options = {})
-    "#{carrier}RateRequest".constantize.new(options).do
+  # Returns a single Rate for a given carrier and code
+  def self.get(carrier, code, options = {})
+    "#{carrier}RateRequest".constantize.new({:service => code}.merge(options)).do
   end
   
-  # There's a list of country codes in config/country_codes.yml generated
-  # directly from the ISO website (http://www.iso.org/iso/list-en1-semic-2.txt)
-  # 
-  # You can re-generate that list with the update_country_codes rake task
-  COUNTRY_CODES = YAML.load(
-    File.read(
-      File.dirname(__FILE__) + "/../../config/country_codes.yml"
-    )
-  ).invert
-    
 private
 
   def self.usps_options(options)

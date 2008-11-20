@@ -210,7 +210,7 @@ class USPSRateRequest < Consumer::Request
   USPS_COUNTRY_CODES = RateRequest::COUNTRY_CODES.merge(NON_ISO_CODES)
   
   def before_to_xml
-    @pounds, @ounces = Helper.weight_in_lbz_oz(@weight)
+    @pounds, @ounces = ShippingHelper.weight_in_lbz_oz(@weight)
 
     # USPS really doesn't like extraneous data
     if self.international?
@@ -224,14 +224,14 @@ class USPSRateRequest < Consumer::Request
       @country = nil
     end
     
-    Helper.upcase!(
+    ShippingHelper.upcase!(
       @mail_type,
       @service,
       @size,
       @container
     )
     
-    Helper.five_digit_zip!(
+    ShippingHelper.five_digit_zip!(
       @sender_zip,
       @zip
     )
