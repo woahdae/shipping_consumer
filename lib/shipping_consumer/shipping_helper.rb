@@ -19,6 +19,8 @@ module ShippingConsumer
       args.each {|arg| arg.to_s.gsub!(/^(.{5}).*/ , "\\1") if arg}
     end
     
+    # sorts rates by price, and puts them into a hash of the form 
+    # 'carrier' => [rates for carrier]
     def self.carrier_rates_hash(rates)
       rates = rates.sort {|a,b| a.price <=> b.price}
       carriers = rates.collect {|r| r.carrier}.uniq
