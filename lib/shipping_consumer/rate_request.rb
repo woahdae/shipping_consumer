@@ -20,27 +20,13 @@ class RateRequest
   # [+:weight+]  Weight in pounds. Always Required.
   # [+:country+] Two-digit country code (ex "US"). Always Required.
   def self.get_multiple(options = {})
-    ups_rates = UPSRateRequest.new(ups_options(options)).do
-    usps_rates = USPSRateRequest.new(usps_options(options)).do
+    ups_rates = UPSRateRequest.new(options).do
+    usps_rates = USPSRateRequest.new(options).do
     return usps_rates + ups_rates
   end
   
   # Returns a single Rate for a given carrier and code
   def self.get(carrier, code, options = {})
     "#{carrier}RateRequest".constantize.new({:service => code}.merge(options)).do
-  end
-  
-private
-
-  def self.usps_options(options)
-    opts = options.dup
-    
-    return opts
-  end
-  
-  def self.ups_options(options)
-    opts = options.dup
-    
-    return opts
   end
 end
