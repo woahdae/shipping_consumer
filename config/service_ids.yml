@@ -1,0 +1,437 @@
+--- 
+1: 
+  :carrier: USPS
+  :code: "22"
+  :service: Priority Mail Flat0Rate Large Box
+2: 
+  :carrier: USPS
+  :code: "6"
+  :service: Media Mail
+3: 
+  :carrier: USPS
+  :code: "23"
+  :service: Express Mail Sunday/Holiday
+4: 
+  :carrier: USPS
+  :code: "12"
+  :service: First-Class Postcard Stamped
+5: 
+  :carrier: USPS
+  :code: "7"
+  :service: Library
+6: 
+  :carrier: USPS
+  :code: "13"
+  :service: Express Mail Flat-Rate Envelope
+7: 
+  :carrier: USPS
+  :code: "25"
+  :service: Express Mail Flat-Rate Envelope Sunday/Holiday
+8: 
+  :carrier: USPS
+  :code: "27"
+  :service: Express Mail Flat-Rate Envelope Hold For Pickup
+9: 
+  :carrier: USPS
+  :code: "16"
+  :service: Priority Mail Flat-Rate Envelope
+10: 
+  :carrier: USPS
+  :code: "0"
+  :service: First-Class
+11: 
+  :carrier: USPS
+  :code: "17"
+  :service: Priority Mail Flat-Rate Box
+12: 
+  :carrier: USPS
+  :code: "1"
+  :service: Priority Mail
+13: 
+  :carrier: USPS
+  :code: "18"
+  :service: Priority Mail Keys and IDs
+14: 
+  :carrier: USPS
+  :code: "2"
+  :service: Express Mail Hold for Pickup
+15: 
+  :carrier: USPS
+  :code: "19"
+  :service: First-Class Keys and IDs
+16: 
+  :carrier: USPS
+  :code: "3"
+  :service: Express Mail PO to Addressee
+17: 
+  :carrier: USPS
+  :code: "4"
+  :service: Parcel Post
+18: 
+  :carrier: USPS
+  :code: "5"
+  :service: Bound Printed Matter
+19: 
+  :carrier: USPS
+  :code: "11"
+  :service: Priority Mail Large Flat Rate Box
+20: 
+  :carrier: USPS
+  :code: "6"
+  :service: Global Express Guaranteed Non-Document Rectangular shape
+21: 
+  :carrier: USPS
+  :code: "12"
+  :service: Global Express Guaranteed Envelope
+22: 
+  :carrier: USPS
+  :code: "7"
+  :service: Global Express Guaranteed Non-Document Non-Rectangular
+23: 
+  :carrier: USPS
+  :code: "13"
+  :service: First Class Mail International Letters
+24: 
+  :carrier: USPS
+  :code: "8"
+  :service: Priority Mail Flat Rate Envelope
+25: 
+  :carrier: USPS
+  :code: "14"
+  :service: First Class Mail International Flats
+26: 
+  :carrier: USPS
+  :code: "9"
+  :service: Priority Mail Flat Rate Box
+27: 
+  :carrier: USPS
+  :code: "15"
+  :service: First Class Mail International Parcels
+28: 
+  :carrier: USPS
+  :code: "1"
+  :service: Express Mail International
+29: 
+  :carrier: USPS
+  :code: "2"
+  :service: Priority Mail International
+30: 
+  :carrier: USPS
+  :code: "21"
+  :service: PostCards
+31: 
+  :carrier: USPS
+  :code: "10"
+  :service: Express Mail International Flat Rate Envelope
+32: 
+  :carrier: USPS
+  :code: "4"
+  :service: Global Express Guaranteed (Document and Non-document)
+33: 
+  :carrier: USPS
+  :code: "5"
+  :service: Global Express Guaranteed Document used
+34: 
+  :carrier: UPS
+  :code: "12"
+  :service: UPS Three-Day Select
+35: 
+  :carrier: UPS
+  :code: "01"
+  :service: UPS Next Day Air
+36: 
+  :carrier: UPS
+  :code: "13"
+  :service: UPS Next Day Air Saver
+37: 
+  :carrier: UPS
+  :code: "02"
+  :service: UPS Second Day Air
+38: 
+  :carrier: UPS
+  :code: "14"
+  :service: UPS Next Day Air Early A.M.
+39: 
+  :carrier: UPS
+  :code: "03"
+  :service: UPS Ground
+40: 
+  :carrier: UPS
+  :code: "59"
+  :service: UPS Second Day Air A.M.
+41: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+42: 
+  :carrier: UPS
+  :code: "11"
+  :service: UPS Standard
+43: 
+  :carrier: UPS
+  :code: "12"
+  :service: UPS Three-Day Select
+44: 
+  :carrier: UPS
+  :code: "01"
+  :service: UPS Next Day Air
+45: 
+  :carrier: UPS
+  :code: "02"
+  :service: UPS Second Day Air
+46: 
+  :carrier: UPS
+  :code: "14"
+  :service: UPS Next Day Air Early A.M.
+47: 
+  :carrier: UPS
+  :code: "03"
+  :service: UPS Ground
+48: 
+  :carrier: UPS
+  :code: "59"
+  :service: UPS Second Day Air A.M.
+49: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Worldwide Express
+50: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Worldwide Expedited
+51: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+52: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+53: 
+  :carrier: UPS
+  :code: "01"
+  :service: UPS Next Day Air
+54: 
+  :carrier: UPS
+  :code: "02"
+  :service: UPS Second Day Air
+55: 
+  :carrier: UPS
+  :code: "14"
+  :service: UPS Next Day Air Early A.M.
+56: 
+  :carrier: UPS
+  :code: "03"
+  :service: UPS Ground
+57: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Worldwide Express
+58: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Worldwide Expedited
+59: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+60: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+61: 
+  :carrier: UPS
+  :code: "11"
+  :service: UPS Standard
+62: 
+  :carrier: UPS
+  :code: "12"
+  :service: UPS Three-Day Select
+63: 
+  :carrier: UPS
+  :code: "01"
+  :service: UPS Express
+64: 
+  :carrier: UPS
+  :code: "13"
+  :service: UPS Saver
+65: 
+  :carrier: UPS
+  :code: "02"
+  :service: UPS Expedited
+66: 
+  :carrier: UPS
+  :code: "14"
+  :service: UPS Express Early A.M.
+67: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Worldwide Express
+68: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Worldwide Expedited
+69: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+70: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+71: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Express
+72: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Expedited
+73: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+74: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Express Plus
+75: 
+  :carrier: UPS
+  :code: "11"
+  :service: UPS Standard
+76: 
+  :carrier: UPS
+  :code: "82"
+  :service: UPS Today Standard
+77: 
+  :carrier: UPS
+  :code: "83"
+  :service: UPS Today Dedicated Courrier
+78: 
+  :carrier: UPS
+  :code: "84"
+  :service: UPS Today Intercity
+79: 
+  :carrier: UPS
+  :code: "85"
+  :service: UPS Today Express
+80: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Express
+81: 
+  :carrier: UPS
+  :code: "86"
+  :service: UPS Today Express Saver
+82: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Expedited
+83: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+84: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+85: 
+  :carrier: UPS
+  :code: "11"
+  :service: UPS Standard
+86: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Express
+87: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Expedited
+88: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+89: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+90: 
+  :carrier: UPS
+  :code: "11"
+  :service: UPS Standard
+91: 
+  :carrier: UPS
+  :code: "07"
+  :service: UPS Express
+92: 
+  :carrier: UPS
+  :code: 08
+  :service: UPS Worldwide Expedited
+93: 
+  :carrier: UPS
+  :code: "65"
+  :service: UPS Saver
+94: 
+  :carrier: UPS
+  :code: "54"
+  :service: UPS Worldwide Express Plus
+95: 
+  :carrier: UPS
+  :code: TDCB
+  :service: Trade Direct Cross Border
+96: 
+  :carrier: UPS
+  :code: "308"
+  :service: UPS Freight LTL
+97: 
+  :carrier: UPS
+  :code: "309"
+  :service: UPS Freight LTL Guaranteed
+98: 
+  :carrier: UPS
+  :code: TDA
+  :service: Trade Direct Air
+99: 
+  :carrier: UPS
+  :code: "310"
+  :service: UPS Freight LTL Urgent
+100: 
+  :carrier: UPS
+  :code: TDO
+  :service: Trade Direct Ocean
+# usps has a bunch of small variations on their service
+# names as compared to the official docs.
+101: 
+  :carrier: USPS
+  :code: "23"
+  :service: Express Mail Sunday/Holiday Guarantee
+102: 
+  :carrier: USPS
+  :code: "25"
+  :service: Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee
+103: 
+  :carrier: USPS
+  :code: "3"
+  :service: Express Mail
+104: 
+  :carrier: USPS
+  :code: "22"
+  :service: Priority Mail Large Flat-Rate Box
+105: 
+  :carrier: USPS
+  :code: "7"
+  :service: Library Mail
+106: 
+  :carrier: USPS
+  :code: "0"
+  :service: First-Class Mail
+107: 
+  :carrier: USPS
+  :code: "0"
+  :service: First-Class Mail Flat
+108: 
+  :carrier: USPS
+  :code: "0"
+  :service: First-Class Mail Parcel
+
+

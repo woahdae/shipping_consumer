@@ -1,6 +1,6 @@
 class Rate
   include Consumer::Mapping
-  attr_accessor :service, :code, :price, :carrier
+  attr_accessor :service, :code, :price, :carrier, :id
   
   # UPS
   map(:all, "//RatingServiceSelectionResponse/RatedShipment", {

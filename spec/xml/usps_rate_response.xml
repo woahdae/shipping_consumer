@@ -3,14 +3,14 @@
   <Package ID="0">
     <ZipOrigination>98105</ZipOrigination>
     <ZipDestination>98105</ZipDestination>
-    <Pounds>5</Pounds>
-    <Ounces>10</Ounces>
+    <Pounds>0</Pounds>
+    <Ounces>1</Ounces>
     <Size>REGULAR</Size>
     <Machinable>FALSE</Machinable>
     <Zone>1, local</Zone>
     <Postage CLASSID="23">
       <MailService>Express Mail Sunday/Holiday Guarantee</MailService>
-      <Rate>34.35</Rate>
+      <Rate>25.10</Rate>
     </Postage>
     <Postage CLASSID="25">
       <MailService>Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee</MailService>
@@ -18,7 +18,7 @@
     </Postage>
     <Postage CLASSID="2">
       <MailService>Express Mail Hold For Pickup</MailService>
-      <Rate>21.85</Rate>
+      <Rate>12.60</Rate>
     </Postage>
     <Postage CLASSID="27">
       <MailService>Express Mail Flat-Rate Envelope Hold For Pickup</MailService>
@@ -26,7 +26,7 @@
     </Postage>
     <Postage CLASSID="3">
       <MailService>Express Mail</MailService>
-      <Rate>21.85</Rate>
+      <Rate>12.60</Rate>
     </Postage>
     <Postage CLASSID="13">
       <MailService>Express Mail Flat-Rate Envelope</MailService>
@@ -34,7 +34,7 @@
     </Postage>
     <Postage CLASSID="1">
       <MailService>Priority Mail</MailService>
-      <Rate>7.05</Rate>
+      <Rate>4.80</Rate>
     </Postage>
     <Postage CLASSID="16">
       <MailService>Priority Mail Flat-Rate Envelope</MailService>
@@ -48,21 +48,33 @@
       <MailService>Priority Mail Large Flat-Rate Box</MailService>
       <Rate>12.95</Rate>
     </Postage>
+    <Postage CLASSID="0">
+      <MailService>First-Class Mail</MailService>
+      <Rate>0.62</Rate>
+    </Postage>
+    <Postage CLASSID="0">
+      <MailService>First-Class Mail Flat</MailService>
+      <Rate>1.17</Rate>
+    </Postage>
+    <Postage CLASSID="0">
+      <MailService>First-Class Mail Parcel</MailService>
+      <Rate>1.17</Rate>
+    </Postage>
     <Postage CLASSID="4">
       <MailService>Parcel Post</MailService>
-      <Rate>8.24</Rate>
+      <Rate>6.40</Rate>
     </Postage>
     <Postage CLASSID="5">
       <MailService>Bound Printed Matter</MailService>
-      <Rate>3.00</Rate>
+      <Rate>2.15</Rate>
     </Postage>
     <Postage CLASSID="6">
       <MailService>Media Mail</MailService>
-      <Rate>3.98</Rate>
+      <Rate>2.23</Rate>
     </Postage>
     <Postage CLASSID="7">
       <MailService>Library Mail</MailService>
-      <Rate>3.77</Rate>
+      <Rate>2.12</Rate>
     </Postage>
   </Package>
 </RateV3Response>

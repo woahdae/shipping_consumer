@@ -209,6 +209,10 @@ class UPSRateRequest < Consumer::Request
     return services[code]
   end
   
+  def service_from_id(id)
+    RateRequest::SERVICE_IDS[id][:service]
+  end
+  
   
   ### End shipping codes ###
   
@@ -240,6 +244,8 @@ class UPSRateRequest < Consumer::Request
   
   def before_to_xml
     @request_type = @service == "all" ? "Shop" : "Rate"
+    
+    @weight =  [1.00, @weight].max
   end
   
   def to_xml

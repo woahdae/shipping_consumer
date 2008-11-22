@@ -22,7 +22,7 @@ module ShippingConsumer
     # sorts rates by price, and puts them into a hash of the form 
     # 'carrier' => [rates for carrier]
     def self.carrier_rates_hash(rates)
-      rates = rates.sort {|a,b| a.price <=> b.price}
+      rates = rates.sort {|a,b| a.price.to_f <=> b.price.to_f}
       carriers = rates.collect {|r| r.carrier}.uniq
       result = {}
       carriers.each do |carrier|

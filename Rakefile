@@ -4,7 +4,7 @@ require 'rubygems/specification'
 require 'date'
 require 'spec/rake/spectask'
 
-GEM = "<%= name %>"
+GEM = "shipping_consumer"
 GEM_VERSION = "0.0.1"
 AUTHOR = "Your Name"
 EMAIL = "Your Email"
@@ -65,3 +65,50 @@ task :update_country_codes do
   yaml = "# " + resp.gsub(/(.*?);/) { $1.titleize + ": "}
   File.open("config/country_codes.yml","w") {|file| file << yaml}
 end
+
+desc "generates unique ids for the specified mail classes from the specified file.
+      Usage: rake generate_unique_ids CARRIER=USPS CONSTS=MAIL_CLASSES,INTL_MAIL_CLASSES"
+task "generate_service_ids" do
+  require 'active_support'
+  require 'yaml'
+  require 'lib/shipping_consumer'
+  
+  class Symbol
+    def <=>(other)
+      self.to_s <=> other.to_s
+    end
+  end
+  
+  class Hash
+    # Replacing the to_yaml function so it'll serialize hashes sorted (by their keys)
+    #
+    # Original function is in /usr/lib/ruby/1.8/yaml/rubytypes.rb
+    def to_yaml( opts = {} )
+      YAML::quick_emit( object_id, opts ) do |out|
+        out.map( taguri, to_yaml_style ) do |map|
+          sort.each do |k, v|   # <-- here's my addition (the 'sort')
+            map.add( k, v )
+          end
+        end
+      end
+    end
+  end
+  
+  carrier = ENV['CARRIER']
+  klass = (carrier + "RateRequest")
+  file = "lib/shipping_consumer/#{klass.underscore}"
+  
+  services = []
+  consts = ENV['CONSTS'].split(',').collect {|const| (klass + "::" + const).constantize}
+  consts.each do |const|
+    servs = const.collect {|code,service| {:carrier => carrier, :code => code, :service => service} }
+    services += servs
+  end
+
+  service_codes = YAML.load(File.read("config/service_ids.yml")) || {}
+  offset = service_codes.empty? ? 1 : service_codes.keys.sort.last + 1
+  services.each_with_index {|service, i| service_codes[i+offset] = service}
+
+  yaml = service_codes.to_yaml
+  File.open("config/service_ids.yml","w") {|file| file << yaml}
+end  

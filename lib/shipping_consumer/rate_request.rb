@@ -10,6 +10,16 @@ class RateRequest
     )
   ).invert
 
+  # We give each carrier, code, and service a unique id in config/service_ids.yml
+  # to make it easier to deal with.
+  # 
+  # See the generate_service_ids rake task for more info on creating the yaml
+  SERVICE_IDS = YAML.load(
+    File.read(
+      File.dirname(__FILE__) + "/../../config/service_ids.yml"
+    )
+  )
+
   ##
   # Gets all Rates from all carriers for the given options
   # === Options
@@ -19,14 +29,64 @@ class RateRequest
   # [+:zip+]     Destination zip. Required for US shipments.
   # [+:weight+]  Weight in pounds. Always Required.
   # [+:country+] Two-digit country code (ex "US"). Always Required.
-  def self.get_multiple(options = {})
+  def self.get_multiple(options = {}, use_internal_ids = false)
     ups_rates = UPSRateRequest.new(options).do
     usps_rates = USPSRateRequest.new(options).do
-    return usps_rates + ups_rates
+    rates = usps_rates + ups_rates
+    
+    rates = add_id_to_rates(rates) if use_internal_ids
+      
+    return rates
   end
   
   # Returns a single Rate for a given carrier and code
   def self.get(carrier, code, options = {})
     "#{carrier}RateRequest".constantize.new({:service => code}.merge(options)).do
   end
+  
+  # === Parameters
+  # [+id+] An Integer identifying the unique carrier, code, and service
+  # === Returns
+  # hash of the form
+  # {:carrier => 'Carrier', :code => 'code', :service => 'service'}
+  # 
+  # (nil if not found)
+  def self.method_from_id(id)
+    SERVICE_IDS[id.to_i]
+  end
+  
+  # === Parameters
+  # [+method_hash+] hash of the form
+  #                 {:carrier => 'Carrier', :code => 'code', :service => 'service'}
+  # === Returns
+  # An Integer identifying the unique carrier, code, and service
+  def self.id_from_method(method_hash)
+    method = SERVICE_IDS.find do |key, value|
+      method_hash[:service].downcase == value[:service].downcase &&
+      method_hash[:code] == value[:code] &&
+      method_hash[:carrier] == value[:carrier]
+    end
+    return method ? method[0] : nil
+  end
+
+  def self.add_id_to_rates(rates)
+    rates.each do |rate|
+      rate.id = id_from_method(
+        :carrier => rate.carrier,
+        :code => rate.code,
+        :service => rate.service
+      )
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
