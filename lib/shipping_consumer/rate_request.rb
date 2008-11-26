@@ -70,13 +70,7 @@ class RateRequest
   end
 
   def self.add_id_to_rates(rates)
-    rates.each do |rate|
-      rate.id = id_from_method(
-        :carrier => rate.carrier,
-        :code => rate.code,
-        :service => rate.service
-      )
-    end
+    rates.each {|rate| rate.set_method_id }
   end
 end
 

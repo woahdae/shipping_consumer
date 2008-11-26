@@ -29,7 +29,7 @@ describe ShippingConsumer::ShippingHelper do
     end
   end
   
-  describe "carrier_rates_hash" do
+  describe "rates_by_carrier" do
     it "should return a hash of the form 'carrier' => [rates]" do
       rate1 = Rate.new
       rate1.carrier = "UPS"
@@ -42,7 +42,7 @@ describe ShippingConsumer::ShippingHelper do
       rate3.price = "6.00"
       rates = [rate1, rate2, rate3]
       expected = {"UPS" => [rate2, rate1], "USPS" => [rate3]}
-      ShippingConsumer::ShippingHelper.carrier_rates_hash(rates).should == expected
+      ShippingConsumer::ShippingHelper.rates_by_carrier(rates).should == expected
     end
   end
 end
