@@ -31,6 +31,14 @@ class Rate
     :code => "attribute::ID"
   }) {|instance| instance.carrier = "USPS" }
   
+  def set_method_id
+    self.id = RateRequest.id_from_method(
+      :code => self.code,
+      :service => self.service,
+      :carrier => self.carrier
+    )
+  end
+  
   # FedEx
   # map()
 end

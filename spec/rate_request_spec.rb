@@ -49,7 +49,7 @@ describe RateRequest do
 
   describe "method_from_id" do
     it "should return a method hash" do
-      RateRequest.method_from_id(1).should == {:service=>"Priority Mail Flat0Rate Large Box", :carrier=>"USPS", :code=>"22"}
+      RateRequest.method_from_id(1).should == {:service=>"Priority Mail Flat0Rate Large Box", :carrier=>"USPS", :code=>"22",:context=>"Domestic",}
     end
   end
 

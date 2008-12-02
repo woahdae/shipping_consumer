@@ -183,24 +183,24 @@ class UPSRateRequest < Consumer::Request
   }
   
   def self.service_from_code(origin, destination, code)
-    services = case origin
+    context = case origin
     when "US"
-      destination == "US" ? US_DOMESTIC_CODES : US_ORIGIN_CODES
+      destination == "US" ? 'US Domestic' : 'US Origin'
     when "PR"
-      PUERTO_RICO_ORIGIN_CODES
+      'Puerto Rico Origin'
     when "CA"
-      CANADA_ORIGIN_CODES
+      'Canada Origin'
     when "MX"
-      MEXICO_ORIGIN_CODES
+      'Mexico Origin'
     when "PL"
-      destination == "PL" ? POLISH_DOMESTIC_CODES : OTHER_INTL_ORIGIN_CODES
+      destination == "PL" ? 'Polish Origin' : 'Other International Origin'
     when *EU_COUNTRY_CODES
-      EU_ORIGIN_CODES
+      'EU Origin'
     else
-      OTHER_INTL_ORIGIN_CODES
+      'Other International Origin'
     end
     
-    return services[code]
+    return SERVICE_CODES[context][code]
   end
   
   def service_from_id(id)
@@ -239,7 +239,7 @@ class UPSRateRequest < Consumer::Request
   def before_to_xml
     @request_type = @service == "all" ? "Shop" : "Rate"
     
-    @weight =  [1.00, @weight].max
+    @weight =  [1.00, @weight.to_f].max
   end
   
   def to_xml
