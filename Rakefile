@@ -67,7 +67,7 @@ task :update_country_codes do
 end
 
 desc "generates unique ids for the specified mail classes from the specified file.
-      Usage: rake generate_unique_ids CARRIER=USPS CONSTS=MAIL_CLASSES,INTL_MAIL_CLASSES"
+      Usage: rake generate_unique_ids CARRIER=USPS"
 task "generate_service_ids" do
   require 'active_support'
   require 'yaml'
@@ -95,13 +95,13 @@ task "generate_service_ids" do
   end
   
   carrier = ENV['CARRIER']
-  klass = (carrier + "RateRequest")
-  file = "lib/shipping_consumer/#{klass.underscore}"
+  carrier_class = (carrier + "RateRequest")
+  file = "lib/shipping_consumer/#{carrier_class.underscore}"
   
   services = []
-  consts = ENV['CONSTS'].split(',').collect {|const| (klass + "::" + const).constantize}
-  consts.each do |const|
-    servs = const.collect {|code,service| {:carrier => carrier, :code => code, :service => service} }
+  contexts ||= carrier_class.constantize::SERVICE_CODES
+  contexts.each do |context, codes|
+    servs = codes.collect {|code,service| {:carrier => carrier, :code => code, :service => service, :context => context} }
     services += servs
   end
 

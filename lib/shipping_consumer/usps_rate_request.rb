@@ -118,45 +118,45 @@ class USPSRateRequest < Consumer::Request
   # You can get these from http://www.usps.com/webtools/htm/RateCalculatorsv20.htm.
   # Copy/paste the right section, and if it helps I did a find/replace using 
   # /([0-9]{1,2})\s+?([\w \/\-\(\)]+?)\n/ to find and '$1' => '$2', to replace
-  MAIL_CLASSES = {
-    "0"  => "First-Class",
-    "1"  => "Priority Mail",
-    "2"  => "Express Mail Hold for Pickup",
-    "3"  => "Express Mail PO to Addressee",
-    "4"  => "Parcel Post",
-    "5"  => "Bound Printed Matter",
-    "6"  => "Media Mail",
-    "7"  => "Library",
-    "12" => "First-Class Postcard Stamped",
-    "13" => "Express Mail Flat-Rate Envelope",
-    "16" => "Priority Mail Flat-Rate Envelope",
-    "17" => "Priority Mail Flat-Rate Box",
-    "18" => "Priority Mail Keys and IDs",
-    "19" => "First-Class Keys and IDs",
-    "22" => "Priority Mail Flat0Rate Large Box",
-    "23" => "Express Mail Sunday/Holiday",
-    "25" => "Express Mail Flat-Rate Envelope Sunday/Holiday",
-    "27" => "Express Mail Flat-Rate Envelope Hold For Pickup"
+  SERVICE_CODES = {
+    "Domestic" => {
+      "0"  => "First-Class",
+      "1"  => "Priority Mail",
+      "2"  => "Express Mail Hold for Pickup",
+      "3"  => "Express Mail PO to Addressee",
+      "4"  => "Parcel Post",
+      "5"  => "Bound Printed Matter",
+      "6"  => "Media Mail",
+      "7"  => "Library",
+      "12" => "First-Class Postcard Stamped",
+      "13" => "Express Mail Flat-Rate Envelope",
+      "16" => "Priority Mail Flat-Rate Envelope",
+      "17" => "Priority Mail Flat-Rate Box",
+      "18" => "Priority Mail Keys and IDs",
+      "19" => "First-Class Keys and IDs",
+      "22" => "Priority Mail Flat0Rate Large Box",
+      "23" => "Express Mail Sunday/Holiday",
+      "25" => "Express Mail Flat-Rate Envelope Sunday/Holiday",
+      "27" => "Express Mail Flat-Rate Envelope Hold For Pickup"
+    },
+    "International" => {
+      "1"  => "Express Mail International",
+      "2"  => "Priority Mail International",
+      "4"  => "Global Express Guaranteed (Document and Non-document)",
+      "5"  => "Global Express Guaranteed Document used",
+      "6"  => "Global Express Guaranteed Non-Document Rectangular shape",
+      "7"  => "Global Express Guaranteed Non-Document Non-Rectangular",
+      "8"  => "Priority Mail Flat Rate Envelope",
+      "9"  => "Priority Mail Flat Rate Box",
+      "10" => "Express Mail International Flat Rate Envelope",
+      "11" => "Priority Mail Large Flat Rate Box",
+      "12" => "Global Express Guaranteed Envelope",
+      "13" => "First Class Mail International Letters",
+      "14" => "First Class Mail International Flats",
+      "15" => "First Class Mail International Parcels",
+      "21" => "PostCards"
+    }
   }
-  
-  INTL_MAIL_CLASSES = {
-    "1"  => "Express Mail International",
-    "2"  => "Priority Mail International",
-    "4"  => "Global Express Guaranteed (Document and Non-document)",
-    "5"  => "Global Express Guaranteed Document used",
-    "6"  => "Global Express Guaranteed Non-Document Rectangular shape",
-    "7"  => "Global Express Guaranteed Non-Document Non-Rectangular",
-    "8"  => "Priority Mail Flat Rate Envelope",
-    "9"  => "Priority Mail Flat Rate Box",
-    "10" => "Express Mail International Flat Rate Envelope",
-    "11" => "Priority Mail Large Flat Rate Box",
-    "12" => "Global Express Guaranteed Envelope",
-    "13" => "First Class Mail International Letters",
-    "14" => "First Class Mail International Flats",
-    "15" => "First Class Mail International Parcels",
-    "21" => "PostCards"
-  }
-  
   
   # May be left blank in situations that do not require a Size. Defined as 
   # follows: 

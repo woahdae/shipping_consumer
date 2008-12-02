@@ -43,6 +43,11 @@ class RateRequest
   def self.get(carrier, code, options = {})
     "#{carrier}RateRequest".constantize.new({:service => code}.merge(options)).do
   end
+
+  def self.get_by_method_id(method_id, options = {})
+    method = self.method_from_id(method_id)
+    self.get(method[:carrier], method[:code], options)
+  end
   
   # === Parameters
   # [+id+] An Integer identifying the unique carrier, code, and service

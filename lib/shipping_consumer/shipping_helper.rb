@@ -31,5 +31,15 @@ module ShippingConsumer
 
       return result
     end
+    
+    def self.methods_by_carrier
+      carriers = {}
+      RateRequest::SERVICE_IDS.each do |id,method|
+        carriers[method[:carrier]] ||= []
+        carriers[method[:carrier]] << method.merge(:id => id)
+      end
+      
+      return carriers
+    end
   end
 end
