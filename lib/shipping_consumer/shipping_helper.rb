@@ -41,5 +41,22 @@ module ShippingConsumer
       
       return carriers
     end
+
+    def self.methods_by_carrier_and_context(methods_hash = nil)
+      methods_hash = methods_hash ? methods_hash.dup : self.methods_by_carrier
+      methods_hash.each do |carrier, methods|
+        contexts = {}
+        methods.each do |method|
+          contexts[method[:context]] ||= []
+          contexts[method[:context]] << method
+        end
+        
+        contexts.values.each {|methods| methods.sort! {|a,b| a[:service] <=> b[:service]}}
+        methods_hash[carrier] = contexts
+      end
+      
+      return methods_hash
+    end
+
   end
 end

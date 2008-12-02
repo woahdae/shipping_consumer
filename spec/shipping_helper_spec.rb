@@ -45,4 +45,28 @@ describe ShippingConsumer::ShippingHelper do
       ShippingConsumer::ShippingHelper.rates_by_carrier(rates).should == expected
     end
   end
+
+  describe "methods_by_carrier_and_context" do
+    it "should return a hash of the form 'carrier' => {context => [methods]}" do
+      RateRequest::SERVICE_IDS = {
+        "1" => {:carrier => "UPS", :code => "01", :service => "Ground", :context => "US Origin"},
+        "2" => {:carrier => "UPS", :code => "02", :service => "Ground", :context => "Mexico Origin"},
+        "3" => {:carrier => "USPS", :code => "03", :service => "Priority", :context => "Domestic"},
+        "4" => {:carrier => "USPS", :code => "04", :service => "Camel", :context => "Domestic"}
+      }
+      expected = {
+        "UPS" => {
+          "Mexico Origin"=> [{:service=>"Ground", :context=>"Mexico Origin", :carrier=>"UPS", :code=>"02", :id=>"2"}],
+          "US Origin"=>[{:service=>"Ground", :context=>"US Origin", :carrier=>"UPS", :code=>"01", :id=>"1"}]
+        },
+        "USPS"=> {
+          "Domestic"=>[
+            {:service=>"Camel", :context=>"Domestic", :carrier=>"USPS", :code=>"04", :id=>"4"},
+            {:service=>"Priority", :context=>"Domestic", :carrier=>"USPS", :code=>"03", :id=>"3"}
+          ]
+        }
+      }
+      ShippingConsumer::ShippingHelper.methods_by_carrier_and_context.should == expected
+    end
+  end
 end
