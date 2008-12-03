@@ -73,6 +73,10 @@ class USPSRateRequest < Consumer::Request
     return ret
   end
   
+  def abort?
+    return non_domestic_origin?
+  end
+  
   # they have a test url, but it's crippled and acts different than the production url.
   url "http://production.shippingapis.com/ShippingAPI.dll"
   
@@ -259,6 +263,10 @@ class USPSRateRequest < Consumer::Request
     end
     
     return "API=#{@request_type}&XML=" + xml
+  end
+  
+  def non_domestic_origin?
+    @sender_country && @sender_country != "US"
   end
   
   def international?

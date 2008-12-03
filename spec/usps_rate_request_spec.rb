@@ -37,7 +37,18 @@ describe USPSRateRequest do
         :country => "BA",
         :weight => "5.6"
       }).do
-      rates.size.should_not be_blank
+      rates.should_not be_blank
+    end
+
+    it "should get no rates if the origin country is non-us" do
+      $DEBUG = true
+      rates = USPSRateRequest.new({
+        :sender_country => "CA",
+        :country => "US",
+        :zip => "98105",
+        :weight => "5.6"
+      }).do
+      rates.should be_blank
     end
     
   end

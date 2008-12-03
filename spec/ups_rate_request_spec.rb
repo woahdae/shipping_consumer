@@ -31,6 +31,20 @@ describe UPSRateRequest do
       }).do
       rates.should_not be_blank
     end
+
+    it "should get live international rates when sender is non-us origin" do
+      $DEBUG = true
+      rates = UPSRateRequest.new({
+        :sender_country => "CA",
+        :sender_zip => "H3C 3A8",
+        :sender_city => "Montreal",
+        :sender_state => "QC",
+        :country => "US",
+        :zip => "98105",
+        :weight => "5.00"
+      }).do
+      rates.should_not be_blank
+    end
   end
   
 end
