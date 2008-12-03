@@ -30,8 +30,8 @@ class RateRequest
   # [+:weight+]  Weight in pounds. Always Required.
   # [+:country+] Two-digit country code (ex "US"). Always Required.
   def self.get_multiple(options = {}, use_internal_ids = false)
-    ups_rates = UPSRateRequest.new(options).do
-    usps_rates = USPSRateRequest.new(options).do
+    ups_rates = UPSRateRequest.new(options).do || []
+    usps_rates = USPSRateRequest.new(options).do || []
     rates = usps_rates + ups_rates
     
     rates = add_id_to_rates(rates) if use_internal_ids
