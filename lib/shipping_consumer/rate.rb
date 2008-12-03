@@ -1,6 +1,6 @@
 class Rate
   include Consumer::Mapping
-  attr_accessor :service, :code, :price, :carrier, :id
+  attr_accessor :service, :code, :price, :carrier, :id, :context
   
   # UPS
   map(:all, "//RatingServiceSelectionResponse/RatedShipment", {
@@ -14,28 +14,37 @@ class Rate
     country_info =~ /(\w+) to (\w+)/
     origin = $1
     destination = $2
-    instance.service = UPSRateRequest.service_from_code(origin, destination, instance.code)
+    instance.context = UPSRateRequest.context_from_code(origin, destination, instance.code)
+    instance.service = UPSRateRequest.service_from_code(origin, destination, instance.code, instance.context)
+    instance.set_method_id
   end
 
-  # USPS
+  # Domestic USPS
   map(:all, "//RateV3Response/Package/Postage", {
     :price => "Rate",
     :service => "MailService",
     :code => "attribute::CLASSID"
-  }) {|instance| instance.carrier = "USPS" }
+  }) do |instance|
+    instance.carrier = "USPS"
+    instance.context = "Domestic"
+  end
   
   # International USPS
   map(:all, "//IntlRateResponse/Package/Service", {
     :price => "Postage",
     :service => "SvcDescription",
     :code => "attribute::ID"
-  }) {|instance| instance.carrier = "USPS" }
+  }) do |instance|
+    instance.carrier = "USPS"
+    instance.context = "International"
+  end
   
   def set_method_id
     self.id = RateRequest.id_from_method(
       :code => self.code,
       :service => self.service,
-      :carrier => self.carrier
+      :carrier => self.carrier,
+      :context => self.context
     )
   end
   

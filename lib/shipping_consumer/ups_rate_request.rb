@@ -182,7 +182,7 @@ class UPSRateRequest < Consumer::Request
     }
   }
   
-  def self.service_from_code(origin, destination, code)
+  def self.context_from_code(origin, destination, code)
     context = case origin
     when "US"
       destination == "US" ? 'US Domestic' : 'US Origin'
@@ -200,6 +200,11 @@ class UPSRateRequest < Consumer::Request
       'Other International Origin'
     end
     
+    return context
+  end
+  
+  def self.service_from_code(origin, destination, code, context = nil)
+    context ||= context_from_code(origin, destination, code)
     return SERVICE_CODES[context][code]
   end
   

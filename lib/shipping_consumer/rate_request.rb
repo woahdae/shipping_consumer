@@ -69,7 +69,8 @@ class RateRequest
     method = SERVICE_IDS.find do |key, value|
       method_hash[:service].downcase == value[:service].downcase &&
       method_hash[:code] == value[:code] &&
-      method_hash[:carrier] == value[:carrier]
+      method_hash[:carrier] == value[:carrier] &&
+      method_hash[:context] == value[:context]
     end
     return method ? method[0] : nil
   end

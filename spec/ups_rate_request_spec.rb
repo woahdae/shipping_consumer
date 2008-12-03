@@ -18,7 +18,8 @@ describe UPSRateRequest do
     
     it "should get live rates" do
       $DEBUG = true # spit out xml for the request & response
-      @request.do
+      rates = @request.do
+      debugger
       rates.should_not be_blank
     end
     
