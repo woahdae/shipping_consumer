@@ -214,7 +214,9 @@ class USPSRateRequest < Consumer::Request
   
   def before_to_xml
     @pounds, @ounces = ShippingHelper.weight_in_lbz_oz(@weight)
-
+    
+    @service ||= @code
+    
     # USPS really doesn't like extraneous data
     if self.international?
       @zip = nil

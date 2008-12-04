@@ -3,499 +3,499 @@
   :carrier: USPS
   :code: "22"
   :context: Domestic
-  :service: Priority Mail Large Flat-Rate Box
+  :name: Priority Mail Large Flat-Rate Box
 2: 
   :carrier: USPS
   :code: "6"
   :context: Domestic
-  :service: Media Mail
+  :name: Media Mail
 3: 
   :carrier: USPS
   :code: "23"
   :context: Domestic
-  :service: Express Mail Sunday/Holiday Guarantee
+  :name: Express Mail Sunday/Holiday Guarantee
 4: 
   :carrier: USPS
   :code: "12"
   :context: Domestic
-  :service: First-Class Postcard Stamped
+  :name: First-Class Postcard Stamped
 5: 
   :carrier: USPS
   :code: "7"
   :context: Domestic
-  :service: Library Mail
+  :name: Library Mail
 6: 
   :carrier: USPS
   :code: "13"
   :context: Domestic
-  :service: Express Mail Flat-Rate Envelope
+  :name: Express Mail Flat-Rate Envelope
 7: 
   :carrier: USPS
   :code: "25"
   :context: Domestic
-  :service: Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee
+  :name: Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee
 8: 
   :carrier: USPS
   :code: "27"
   :context: Domestic
-  :service: Express Mail Flat-Rate Envelope Hold For Pickup
+  :name: Express Mail Flat-Rate Envelope Hold For Pickup
 9: 
   :carrier: USPS
   :code: "16"
   :context: Domestic
-  :service: Priority Mail Flat-Rate Envelope
+  :name: Priority Mail Flat-Rate Envelope
 10: 
   :carrier: USPS
   :code: "0"
   :context: Domestic
-  :service: First-Class Mail
+  :name: First-Class Mail
 11: 
   :carrier: USPS
   :code: "17"
   :context: Domestic
-  :service: Priority Mail Flat-Rate Box
+  :name: Priority Mail Flat-Rate Box
 12: 
   :carrier: USPS
   :code: "1"
   :context: Domestic
-  :service: Priority Mail
+  :name: Priority Mail
 13: 
   :carrier: USPS
   :code: "18"
   :context: Domestic
-  :service: Priority Mail Keys and IDs
+  :name: Priority Mail Keys and IDs
 14: 
   :carrier: USPS
   :code: "2"
   :context: Domestic
-  :service: Express Mail Hold for Pickup
+  :name: Express Mail Hold for Pickup
 15: 
   :carrier: USPS
   :code: "19"
   :context: Domestic
-  :service: First-Class Keys and IDs
+  :name: First-Class Keys and IDs
 16: 
   :carrier: USPS
   :code: "3"
   :context: Domestic
-  :service: Express Mail
+  :name: Express Mail
 17: 
   :carrier: USPS
   :code: "4"
   :context: Domestic
-  :service: Parcel Post
+  :name: Parcel Post
 18: 
   :carrier: USPS
   :code: "5"
   :context: Domestic
-  :service: Bound Printed Matter
+  :name: Bound Printed Matter
 19: 
   :carrier: USPS
   :code: "11"
   :context: International
-  :service: Priority Mail International Large Flat-Rate Box
+  :name: Priority Mail International Large Flat-Rate Box
 20: 
   :carrier: USPS
   :code: "6"
   :context: International
-  :service: Global Express Guaranteed Non-Document Rectangular
+  :name: Global Express Guaranteed Non-Document Rectangular
 21: 
   :carrier: USPS
   :code: "12"
   :context: International
-  :service: Global Express Guaranteed Envelope
+  :name: Global Express Guaranteed Envelope
 22: 
   :carrier: USPS
   :code: "7"
   :context: International
-  :service: Global Express Guaranteed Non-Document Non-Rectangular
+  :name: Global Express Guaranteed Non-Document Non-Rectangular
 23: 
   :carrier: USPS
   :code: "13"
   :context: International
-  :service: First Class Mail International Letters
+  :name: First Class Mail International Letters
 24: 
   :carrier: USPS
   :code: "8"
   :context: International
-  :service: Priority Mail Flat-Rate Envelope
+  :name: Priority Mail Flat-Rate Envelope
 25: 
   :carrier: USPS
   :code: "14"
   :context: International
-  :service: First Class Mail International Flats
+  :name: First Class Mail International Flats
 26: 
   :carrier: USPS
   :code: "9"
   :context: International
-  :service: Priority Mail Flat-Rate Box
+  :name: Priority Mail Flat-Rate Box
 27: 
   :carrier: USPS
   :code: "15"
   :context: International
-  :service: First Class Mail International Parcels
+  :name: First Class Mail International Parcels
 28: 
   :carrier: USPS
   :code: "1"
   :context: International
-  :service: Express Mail International
+  :name: Express Mail International
 29: 
   :carrier: USPS
   :code: "2"
   :context: International
-  :service: Priority Mail International
+  :name: Priority Mail International
 30: 
   :carrier: USPS
   :code: "21"
   :context: International
-  :service: PostCards
+  :name: PostCards
 31: 
   :carrier: USPS
   :code: "10"
   :context: International
-  :service: Express Mail International Flat-Rate Envelope
+  :name: Express Mail International Flat-Rate Envelope
 32: 
   :carrier: USPS
   :code: "4"
   :context: International
-  :service: Global Express Guaranteed
+  :name: Global Express Guaranteed
 33: 
   :carrier: USPS
   :code: "5"
   :context: International
-  :service: Global Express Guaranteed Document
+  :name: Global Express Guaranteed Document
 34: 
   :carrier: UPS
   :code: "11"
   :context: EU Origin
-  :service: UPS Standard
+  :name: UPS Standard
 35: 
   :carrier: UPS
   :code: "07"
   :context: EU Origin
-  :service: UPS Express
+  :name: UPS Express
 36: 
   :carrier: UPS
   :code: "08"
   :context: EU Origin
-  :service: UPS Expedited
+  :name: UPS Expedited
 37: 
   :carrier: UPS
   :code: "65"
   :context: EU Origin
-  :service: UPS Saver
+  :name: UPS Saver
 38: 
   :carrier: UPS
   :code: "54"
   :context: EU Origin
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
 39: 
   :carrier: UPS
   :code: "12"
   :context: US Domestic
-  :service: UPS Three-Day Select
+  :name: UPS Three-Day Select
 40: 
   :carrier: UPS
   :code: "01"
   :context: US Domestic
-  :service: UPS Next Day Air
+  :name: UPS Next Day Air
 41: 
   :carrier: UPS
   :code: "13"
   :context: US Domestic
-  :service: UPS Next Day Air Saver
+  :name: UPS Next Day Air Saver
 42: 
   :carrier: UPS
   :code: "02"
   :context: US Domestic
-  :service: UPS Second Day Air
+  :name: UPS Second Day Air
 43: 
   :carrier: UPS
   :code: "14"
   :context: US Domestic
-  :service: UPS Next Day Air Early A.M.
+  :name: UPS Next Day Air Early A.M.
 44: 
   :carrier: UPS
   :code: "03"
   :context: US Domestic
-  :service: UPS Ground
+  :name: UPS Ground
 45: 
   :carrier: UPS
   :code: "59"
   :context: US Domestic
-  :service: UPS Second Day Air A.M.
+  :name: UPS Second Day Air A.M.
 46: 
   :carrier: UPS
   :code: "65"
   :context: US Domestic
-  :service: UPS Saver
+  :name: UPS Saver
 47: 
   :carrier: UPS
   :code: "11"
   :context: Other International Origin
-  :service: UPS Standard
+  :name: UPS Standard
 48: 
   :carrier: UPS
   :code: "07"
   :context: Other International Origin
-  :service: UPS Express
+  :name: UPS Express
 49: 
   :carrier: UPS
   :code: "08"
   :context: Other International Origin
-  :service: UPS Worldwide Expedited
+  :name: UPS Worldwide Expedited
 50: 
   :carrier: UPS
   :code: "65"
   :context: Other International Origin
-  :service: UPS Saver
+  :name: UPS Saver
 51: 
   :carrier: UPS
   :code: "54"
   :context: Other International Origin
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
 52: 
   :carrier: UPS
   :code: "11"
   :context: Canada Origin
-  :service: UPS Standard
+  :name: UPS Standard
 53: 
   :carrier: UPS
   :code: "12"
   :context: Canada Origin
-  :service: UPS Three-Day Select
+  :name: UPS Three-Day Select
 54: 
   :carrier: UPS
   :code: "01"
   :context: Canada Origin
-  :service: UPS Express
+  :name: UPS Express
 55: 
   :carrier: UPS
   :code: "13"
   :context: Canada Origin
-  :service: UPS Saver
+  :name: UPS Saver
 56: 
   :carrier: UPS
   :code: "02"
   :context: Canada Origin
-  :service: UPS Expedited
+  :name: UPS Expedited
 57: 
   :carrier: UPS
   :code: "14"
   :context: Canada Origin
-  :service: UPS Express Early A.M.
+  :name: UPS Express Early A.M.
 58: 
   :carrier: UPS
   :code: "07"
   :context: Canada Origin
-  :service: UPS Worldwide Express
+  :name: UPS Worldwide Express
 59: 
   :carrier: UPS
   :code: "08"
   :context: Canada Origin
-  :service: UPS Worldwide Expedited
+  :name: UPS Worldwide Expedited
 60: 
   :carrier: UPS
   :code: "65"
   :context: Canada Origin
-  :service: UPS Saver
+  :name: UPS Saver
 61: 
   :carrier: UPS
   :code: "54"
   :context: Canada Origin
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
 62: 
   :carrier: UPS
   :code: "11"
   :context: Polish Domestic
-  :service: UPS Standard
+  :name: UPS Standard
 63: 
   :carrier: UPS
   :code: "82"
   :context: Polish Domestic
-  :service: UPS Today Standard
+  :name: UPS Today Standard
 64: 
   :carrier: UPS
   :code: "83"
   :context: Polish Domestic
-  :service: UPS Today Dedicated Courrier
+  :name: UPS Today Dedicated Courrier
 65: 
   :carrier: UPS
   :code: "84"
   :context: Polish Domestic
-  :service: UPS Today Intercity
+  :name: UPS Today Intercity
 66: 
   :carrier: UPS
   :code: "85"
   :context: Polish Domestic
-  :service: UPS Today Express
+  :name: UPS Today Express
 67: 
   :carrier: UPS
   :code: "07"
   :context: Polish Domestic
-  :service: UPS Express
+  :name: UPS Express
 68: 
   :carrier: UPS
   :code: "86"
   :context: Polish Domestic
-  :service: UPS Today Express Saver
+  :name: UPS Today Express Saver
 69: 
   :carrier: UPS
   :code: "08"
   :context: Polish Domestic
-  :service: UPS Expedited
+  :name: UPS Expedited
 70: 
   :carrier: UPS
   :code: "65"
   :context: Polish Domestic
-  :service: UPS Saver
+  :name: UPS Saver
 71: 
   :carrier: UPS
   :code: "54"
   :context: Polish Domestic
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
 72: 
   :carrier: UPS
   :code: "07"
   :context: Mexico Origin
-  :service: UPS Express
+  :name: UPS Express
 73: 
   :carrier: UPS
   :code: "08"
   :context: Mexico Origin
-  :service: UPS Expedited
+  :name: UPS Expedited
 74: 
   :carrier: UPS
   :code: "65"
   :context: Mexico Origin
-  :service: UPS Saver
+  :name: UPS Saver
 75: 
   :carrier: UPS
   :code: "54"
   :context: Mexico Origin
-  :service: UPS Express Plus
+  :name: UPS Express Plus
 76: 
   :carrier: UPS
   :code: TDCB
   :context: Freight
-  :service: Trade Direct Cross Border
+  :name: Trade Direct Cross Border
 77: 
   :carrier: UPS
   :code: "308"
   :context: Freight
-  :service: UPS Freight LTL
+  :name: UPS Freight LTL
 78: 
   :carrier: UPS
   :code: "309"
   :context: Freight
-  :service: UPS Freight LTL Guaranteed
+  :name: UPS Freight LTL Guaranteed
 79: 
   :carrier: UPS
   :code: TDA
   :context: Freight
-  :service: Trade Direct Air
+  :name: Trade Direct Air
 80: 
   :carrier: UPS
   :code: "310"
   :context: Freight
-  :service: UPS Freight LTL Urgent
+  :name: UPS Freight LTL Urgent
 81: 
   :carrier: UPS
   :code: TDO
   :context: Freight
-  :service: Trade Direct Ocean
+  :name: Trade Direct Ocean
 82: 
   :carrier: UPS
   :code: "11"
   :context: US Origin
-  :service: UPS Standard
+  :name: UPS Standard
 83: 
   :carrier: UPS
   :code: "12"
   :context: US Origin
-  :service: UPS Three-Day Select
+  :name: UPS Three-Day Select
 84: 
   :carrier: UPS
   :code: "01"
   :context: US Origin
-  :service: UPS Next Day Air
+  :name: UPS Next Day Air
 85: 
   :carrier: UPS
   :code: "02"
   :context: US Origin
-  :service: UPS Second Day Air
+  :name: UPS Second Day Air
 86: 
   :carrier: UPS
   :code: "14"
   :context: US Origin
-  :service: UPS Next Day Air Early A.M.
+  :name: UPS Next Day Air Early A.M.
 87: 
   :carrier: UPS
   :code: "03"
   :context: US Origin
-  :service: UPS Ground
+  :name: UPS Ground
 88: 
   :carrier: UPS
   :code: "59"
   :context: US Origin
-  :service: UPS Second Day Air A.M.
+  :name: UPS Second Day Air A.M.
 89: 
   :carrier: UPS
   :code: "07"
   :context: US Origin
-  :service: UPS Worldwide Express
+  :name: UPS Worldwide Express
 90: 
   :carrier: UPS
   :code: "08"
   :context: US Origin
-  :service: UPS Worldwide Expedited
+  :name: UPS Worldwide Expedited
 91: 
   :carrier: UPS
   :code: "65"
   :context: US Origin
-  :service: UPS Saver
+  :name: UPS Saver
 92: 
   :carrier: UPS
   :code: "54"
   :context: US Origin
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
 93: 
   :carrier: UPS
   :code: "01"
   :context: Puerto Rico Origin
-  :service: UPS Next Day Air
+  :name: UPS Next Day Air
 94: 
   :carrier: UPS
   :code: "02"
   :context: Puerto Rico Origin
-  :service: UPS Second Day Air
+  :name: UPS Second Day Air
 95: 
   :carrier: UPS
   :code: "14"
   :context: Puerto Rico Origin
-  :service: UPS Next Day Air Early A.M.
+  :name: UPS Next Day Air Early A.M.
 96: 
   :carrier: UPS
   :code: "03"
   :context: Puerto Rico Origin
-  :service: UPS Ground
+  :name: UPS Ground
 97: 
   :carrier: UPS
   :code: "07"
   :context: Puerto Rico Origin
-  :service: UPS Worldwide Express
+  :name: UPS Worldwide Express
 98: 
   :carrier: UPS
   :code: "08"
   :context: Puerto Rico Origin
-  :service: UPS Worldwide Expedited
+  :name: UPS Worldwide Expedited
 99: 
   :carrier: UPS
   :code: "65"
   :context: Puerto Rico Origin
-  :service: UPS Saver
+  :name: UPS Saver
 100: 
   :carrier: UPS
   :code: "54"
   :context: Puerto Rico Origin
-  :service: UPS Worldwide Express Plus
+  :name: UPS Worldwide Express Plus
