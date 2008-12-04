@@ -106,17 +106,20 @@ class UPSRateRequest < Consumer::Request
       "65" => "UPS Saver"
     },
     "US Origin" => {
-      "01" => "UPS Next Day Air",
-      "02" => "UPS Second Day Air",
-      "03" => "UPS Ground",
+      # Although the documentation says these exist,
+      # in actuality they are not ever used for anything
+      # but freight.
+      # "01" => "UPS Next Day Air",
+      # "02" => "UPS Second Day Air",
+      # "03" => "UPS Ground",
       "07" => "UPS Worldwide Express",
       "08" => "UPS Worldwide Expedited",
       "11" => "UPS Standard",
-      "12" => "UPS Three-Day Select",
-      "14" => "UPS Next Day Air Early A.M.",
-      "54" => "UPS Worldwide Express Plus",
-      "59" => "UPS Second Day Air A.M.",
-      "65" => "UPS Saver"
+      # "12" => "UPS Three-Day Select",
+      # "14" => "UPS Next Day Air Early A.M.",
+      "54" => "UPS Worldwide Express Plus"
+      # "59" => "UPS Second Day Air A.M.",
+      # "65" => "UPS Saver"
     },
     "Puerto Rico Origin" => {
       "01" => "UPS Next Day Air",

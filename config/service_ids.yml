@@ -409,36 +409,36 @@
   :code: "11"
   :context: US Origin
   :name: UPS Standard
-83: 
-  :carrier: UPS
-  :code: "12"
-  :context: US Origin
-  :name: UPS Three-Day Select
-84: 
-  :carrier: UPS
-  :code: "01"
-  :context: US Origin
-  :name: UPS Next Day Air
-85: 
-  :carrier: UPS
-  :code: "02"
-  :context: US Origin
-  :name: UPS Second Day Air
-86: 
-  :carrier: UPS
-  :code: "14"
-  :context: US Origin
-  :name: UPS Next Day Air Early A.M.
-87: 
-  :carrier: UPS
-  :code: "03"
-  :context: US Origin
-  :name: UPS Ground
-88: 
-  :carrier: UPS
-  :code: "59"
-  :context: US Origin
-  :name: UPS Second Day Air A.M.
+# 83: 
+#   :carrier: UPS
+#   :code: "12"
+#   :context: US Origin
+#   :name: UPS Three-Day Select
+# 84: 
+#   :carrier: UPS
+#   :code: "01"
+#   :context: US Origin
+#   :name: UPS Next Day Air
+# 85: 
+#   :carrier: UPS
+#   :code: "02"
+#   :context: US Origin
+#   :name: UPS Second Day Air
+# 86: 
+#   :carrier: UPS
+#   :code: "14"
+#   :context: US Origin
+#   :name: UPS Next Day Air Early A.M.
+# 87: 
+#   :carrier: UPS
+#   :code: "03"
+#   :context: US Origin
+#   :name: UPS Ground
+# 88: 
+#   :carrier: UPS
+#   :code: "59"
+#   :context: US Origin
+#   :name: UPS Second Day Air A.M.
 89: 
   :carrier: UPS
   :code: "07"
@@ -449,11 +449,11 @@
   :code: "08"
   :context: US Origin
   :name: UPS Worldwide Expedited
-91: 
-  :carrier: UPS
-  :code: "65"
-  :context: US Origin
-  :name: UPS Saver
+# 91: 
+#   :carrier: UPS
+#   :code: "65"
+#   :context: US Origin
+#   :name: UPS Saver
 92: 
   :carrier: UPS
   :code: "54"
