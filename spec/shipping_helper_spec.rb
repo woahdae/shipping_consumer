@@ -48,25 +48,27 @@ describe ShippingConsumer::ShippingHelper do
 
   describe "methods_by_carrier_and_context" do
     it "should return a hash of the form 'carrier' => {context => [methods]}" do
-      RateRequest::SERVICE_IDS = {
-        "1" => {:carrier => "UPS", :code => "01", :service => "Ground", :context => "US Origin"},
-        "2" => {:carrier => "UPS", :code => "02", :service => "Ground", :context => "Mexico Origin"},
-        "3" => {:carrier => "USPS", :code => "03", :service => "Priority", :context => "Domestic"},
-        "4" => {:carrier => "USPS", :code => "04", :service => "Camel", :context => "Domestic"}
+      Service::SERVICE_IDS = {
+        "1" => {:carrier => "UPS", :code => "01", :name => "Ground", :context => "US Origin"},
+        "2" => {:carrier => "UPS", :code => "02", :name => "Ground", :context => "Mexico Origin"},
+        "3" => {:carrier => "USPS", :code => "03", :name => "Priority", :context => "Domestic"},
+        "4" => {:carrier => "USPS", :code => "04", :name => "Camel", :context => "Domestic"}
       }
-      expected = {
-        "UPS" => {
-          "Mexico Origin"=> [{:service=>"Ground", :context=>"Mexico Origin", :carrier=>"UPS", :code=>"02", :id=>"2"}],
-          "US Origin"=>[{:service=>"Ground", :context=>"US Origin", :carrier=>"UPS", :code=>"01", :id=>"1"}]
-        },
-        "USPS"=> {
-          "Domestic"=>[
-            {:service=>"Camel", :context=>"Domestic", :carrier=>"USPS", :code=>"04", :id=>"4"},
-            {:service=>"Priority", :context=>"Domestic", :carrier=>"USPS", :code=>"03", :id=>"3"}
-          ]
-        }
-      }
-      ShippingConsumer::ShippingHelper.methods_by_carrier_and_context.should == expected
+      # expected = {
+      #   "UPS" => {
+      #     "Mexico Origin"=> [Service.new({:name=>"Ground", :context=>"Mexico Origin", :carrier=>"UPS", :code=>"02", :id=>"2"})],
+      #     "US Origin"=>[Service.new({:name=>"Ground", :context=>"US Origin", :carrier=>"UPS", :code=>"01", :id=>"1"})]
+      #   },
+      #   "USPS"=> {
+      #     "Domestic"=>[
+      #       Service.new({:name=>"Camel", :context=>"Domestic", :carrier=>"USPS", :code=>"04", :id=>"4"}),
+      #       Service.new({:name=>"Priority", :context=>"Domestic", :carrier=>"USPS", :code=>"03", :id=>"3"})
+      #     ]
+      #   }
+      # }
+      res = ShippingConsumer::ShippingHelper.services_by_carrier_and_context
+      res["UPS"].size.should == 2
+      res["USPS"].size.should == 1
     end
   end
 end

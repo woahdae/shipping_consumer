@@ -32,30 +32,30 @@ module ShippingConsumer
       return result
     end
     
-    def self.methods_by_carrier
+    def self.services_by_carrier
       carriers = {}
-      RateRequest::SERVICE_IDS.each do |id,method|
-        carriers[method[:carrier]] ||= []
-        carriers[method[:carrier]] << method.merge(:id => id)
+      Service::SERVICE_IDS.each do |id,service|
+        carriers[service[:carrier]] ||= []
+        carriers[service[:carrier]] << Service.new(service.merge(:id => id))
       end
       
       return carriers
     end
 
-    def self.methods_by_carrier_and_context(methods_hash = nil)
-      methods_hash = methods_hash ? methods_hash.dup : self.methods_by_carrier
-      methods_hash.each do |carrier, methods|
+    def self.services_by_carrier_and_context(services_by_carrier_hash = nil)
+      services_by_carrier_hash = services_by_carrier_hash ? services_by_carrier_hash.dup : self.services_by_carrier
+      services_by_carrier_hash.each do |carrier, services|
         contexts = {}
-        methods.each do |method|
-          contexts[method[:context]] ||= []
-          contexts[method[:context]] << method
+        services.each do |service|
+          contexts[service[:context]] ||= []
+          contexts[service[:context]] << service
         end
         
-        contexts.values.each {|methods| methods.sort! {|a,b| a[:service] <=> b[:service]}}
-        methods_hash[carrier] = contexts
+        contexts.values.each {|services| services.sort! {|a,b| a[:name] <=> b[:name]}}
+        services_by_carrier_hash[carrier] = contexts
       end
       
-      return methods_hash
+      return services_by_carrier_hash
     end
 
   end
