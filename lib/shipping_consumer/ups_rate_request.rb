@@ -326,7 +326,7 @@ class UPSRateRequest < Consumer::Request
   end
   
   def international?
-    @country && @country != "US"
+    (@sender_country && @sender_country != 'US') && (@country && @country != "US")
   end
   
 end
