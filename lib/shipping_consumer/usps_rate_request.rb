@@ -120,7 +120,7 @@ class USPSRateRequest < Consumer::Request
   ]
   
   # You can get these from http://www.usps.com/webtools/htm/RateCalculatorsv20.htm.
-  # Note that we've updated them as per what we see coming from the live API
+  # Note that we've updated them as per what we see from the live API
   SERVICE_CODES = {
     "Domestic" => {
       "0"  => "First-Class Mail",
