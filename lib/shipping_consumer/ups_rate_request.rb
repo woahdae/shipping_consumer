@@ -203,10 +203,19 @@ class UPSRateRequest < Consumer::Request
     return context
   end
   
-  def self.service_from_code(origin, destination, code, context = nil)
+  def self.service_name_from_code(origin, destination, code, context = nil)
     context ||= context_from_code(origin, destination, code)
     return SERVICE_CODES[context][code]
   end
+  
+  def self.service_from_code(origin, destination, code)
+    context = context_from_code(origin, destination, code)
+    return Service.find_by_attributes(
+      :carrier => "UPS",
+      :context => context,
+      :code => code
+    )
+  end 
   
   def service_from_id(id)
     RateRequest::SERVICE_IDS[id][:service]
@@ -242,7 +251,8 @@ class UPSRateRequest < Consumer::Request
   }
   
   def before_to_xml
-    @request_type = @service == "all" ? "Shop" : "Rate"
+    @code ||= SERVICES[@service]
+    @request_type = @code == "all" ? "Shop" : "Rate"
     
     @weight =  [1.00, @weight.to_f].max
   end
@@ -291,7 +301,7 @@ class UPSRateRequest < Consumer::Request
           }
         }
         b.Service {
-          b.Code SERVICES[@service]
+          b.Code @code
         }
         b.Package {
           b.PackagingType {
