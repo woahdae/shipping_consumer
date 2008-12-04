@@ -3,7 +3,7 @@
   :carrier: USPS
   :code: "22"
   :context: Domestic
-  :service: Priority Mail Flat0Rate Large Box
+  :service: Priority Mail Large Flat-Rate Box
 2: 
   :carrier: USPS
   :code: "6"
@@ -13,7 +13,7 @@
   :carrier: USPS
   :code: "23"
   :context: Domestic
-  :service: Express Mail Sunday/Holiday
+  :service: Express Mail Sunday/Holiday Guarantee
 4: 
   :carrier: USPS
   :code: "12"
@@ -23,7 +23,7 @@
   :carrier: USPS
   :code: "7"
   :context: Domestic
-  :service: Library
+  :service: Library Mail
 6: 
   :carrier: USPS
   :code: "13"
@@ -33,7 +33,7 @@
   :carrier: USPS
   :code: "25"
   :context: Domestic
-  :service: Express Mail Flat-Rate Envelope Sunday/Holiday
+  :service: Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee
 8: 
   :carrier: USPS
   :code: "27"
@@ -48,7 +48,7 @@
   :carrier: USPS
   :code: "0"
   :context: Domestic
-  :service: First-Class
+  :service: First-Class Mail
 11: 
   :carrier: USPS
   :code: "17"
@@ -78,7 +78,7 @@
   :carrier: USPS
   :code: "3"
   :context: Domestic
-  :service: Express Mail PO to Addressee
+  :service: Express Mail
 17: 
   :carrier: USPS
   :code: "4"
@@ -93,12 +93,12 @@
   :carrier: USPS
   :code: "11"
   :context: International
-  :service: Priority Mail Large Flat Rate Box
+  :service: Priority Mail International Large Flat-Rate Box
 20: 
   :carrier: USPS
   :code: "6"
   :context: International
-  :service: Global Express Guaranteed Non-Document Rectangular shape
+  :service: Global Express Guaranteed Non-Document Rectangular
 21: 
   :carrier: USPS
   :code: "12"
@@ -118,7 +118,7 @@
   :carrier: USPS
   :code: "8"
   :context: International
-  :service: Priority Mail Flat Rate Envelope
+  :service: Priority Mail Flat-Rate Envelope
 25: 
   :carrier: USPS
   :code: "14"
@@ -128,7 +128,7 @@
   :carrier: USPS
   :code: "9"
   :context: International
-  :service: Priority Mail Flat Rate Box
+  :service: Priority Mail Flat-Rate Box
 27: 
   :carrier: USPS
   :code: "15"
@@ -153,17 +153,17 @@
   :carrier: USPS
   :code: "10"
   :context: International
-  :service: Express Mail International Flat Rate Envelope
+  :service: Express Mail International Flat-Rate Envelope
 32: 
   :carrier: USPS
   :code: "4"
   :context: International
-  :service: Global Express Guaranteed (Document and Non-document)
+  :service: Global Express Guaranteed
 33: 
   :carrier: USPS
   :code: "5"
   :context: International
-  :service: Global Express Guaranteed Document used
+  :service: Global Express Guaranteed Document
 34: 
   :carrier: UPS
   :code: "11"
@@ -176,7 +176,7 @@
   :service: UPS Express
 36: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: EU Origin
   :service: UPS Expedited
 37: 
@@ -241,7 +241,7 @@
   :service: UPS Express
 49: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Other International Origin
   :service: UPS Worldwide Expedited
 50: 
@@ -291,7 +291,7 @@
   :service: UPS Worldwide Express
 59: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Canada Origin
   :service: UPS Worldwide Expedited
 60: 
@@ -341,7 +341,7 @@
   :service: UPS Today Express Saver
 69: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Polish Domestic
   :service: UPS Expedited
 70: 
@@ -361,7 +361,7 @@
   :service: UPS Express
 73: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Mexico Origin
   :service: UPS Expedited
 74: 
@@ -446,7 +446,7 @@
   :service: UPS Worldwide Express
 90: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: US Origin
   :service: UPS Worldwide Expedited
 91: 
@@ -486,7 +486,7 @@
   :service: UPS Worldwide Express
 98: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Puerto Rico Origin
   :service: UPS Worldwide Expedited
 99: 
@@ -499,45 +499,3 @@
   :code: "54"
   :context: Puerto Rico Origin
   :service: UPS Worldwide Express Plus
-# usps has a bunch of small variations on their service
-# names as compared to the official docs.
-101: 
-  :carrier: USPS
-  :code: "23"
-  :context: Domestic
-  :service: Express Mail Sunday/Holiday Guarantee
-102: 
-  :carrier: USPS
-  :code: "25"
-  :context: Domestic
-  :service: Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee
-103: 
-  :carrier: USPS
-  :code: "3"
-  :context: Domestic
-  :service: Express Mail
-104: 
-  :carrier: USPS
-  :code: "22"
-  :context: Domestic
-  :service: Priority Mail Large Flat-Rate Box
-105: 
-  :carrier: USPS
-  :code: "7"
-  :context: Domestic
-  :service: Library Mail
-106: 
-  :carrier: USPS
-  :code: "0"
-  :context: Domestic
-  :service: First-Class Mail
-107: 
-  :carrier: USPS
-  :code: "0"
-  :context: Domestic
-  :service: First-Class Mail Flat
-108: 
-  :carrier: USPS
-  :code: "0"
-  :context: Domestic
-  :service: First-Class Mail Parcel

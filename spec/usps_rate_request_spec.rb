@@ -26,7 +26,7 @@ describe USPSRateRequest do
       $DEBUG = true
       rates = USPSRateRequest.new({
         :weight => "5.6",
-        :country => "VG"
+        :country => "BR"
       }).do
       rates.should_not be_blank
     end
@@ -39,7 +39,7 @@ describe USPSRateRequest do
       }).do
       rates.should_not be_blank
     end
-
+    
     it "should get no rates if the origin country is non-us" do
       $DEBUG = true
       rates = USPSRateRequest.new({
