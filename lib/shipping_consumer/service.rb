@@ -16,7 +16,7 @@ class Service
     if attrs.nil? || attrs.empty?
       return nil 
     else
-      return self.new(attrs)
+      return self.new(attrs.merge(:id => id))
     end
   end
   
@@ -43,7 +43,22 @@ class Service
   def []=(attribute)
     self.send(attribute.to_s + "=", attribute)
   end
+
+  # crystalcommerce specific code
+
+  def custom
+    false
+  end
   
+  def service
+    self.name
+  end
+  
+  def custom?
+    false
+  end
+  
+  # end CC code
 private
   
   def initialize_attributes(attrs)
