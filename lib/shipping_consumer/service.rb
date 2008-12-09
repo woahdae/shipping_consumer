@@ -11,13 +11,11 @@ class Service
   end
   
   def self.find(id)
-    attrs = SERVICE_IDS[id.to_i]
+    attrs = hash_from_id(id)
     
-    if attrs.nil? || attrs.empty?
-      return nil 
-    else
-      return self.new(attrs.merge(:id => id))
-    end
+    return nil if attrs.nil?
+    
+    return Service.new(attrs)
   end
   
   def self.find_by_attributes(attrs)
@@ -43,6 +41,10 @@ class Service
   def []=(attribute)
     self.send(attribute.to_s + "=", attribute)
   end
+  
+  def to_hash
+    Service.hash_from_id(self.id)
+  end
 
   # crystalcommerce specific code
 
@@ -59,7 +61,19 @@ class Service
   end
   
   # end CC code
-private
+  protected
+
+  def self.hash_from_id(id)
+    attrs = SERVICE_IDS[id.to_i]
+    
+    if attrs.nil? || attrs.empty?
+      return nil 
+    else
+      return attrs.merge(:id => id)
+    end
+  end
+  
+  private
   
   def initialize_attributes(attrs)
     attrs.each do |attr, value|

@@ -1,5 +1,7 @@
 # A common interface for the different rates.
 class RateRequest
+  include ShippingConsumer
+  
   # There's a list of country codes in config/country_codes.yml generated
   # directly from the ISO website (http://www.iso.org/iso/list-en1-semic-2.txt)
   # 
@@ -30,8 +32,18 @@ class RateRequest
   # [+:weight+]  Weight in pounds. Always Required.
   # [+:country+] Two-digit country code (ex "US"). Always Required.
   def self.get_multiple(shipping_params = {}, use_service_ids = false)
-    ups_rates = UPSRateRequest.do(shipping_params) || []
-    usps_rates = USPSRateRequest.do(shipping_params) || []
+    ups_rates = begin
+      UPSRateRequest.do(shipping_params) || []
+    rescue Errno::ECONNRESET
+      [CarrierTimeout.new("UPS")]
+    end
+    
+    usps_rates = begin
+      USPSRateRequest.do(shipping_params) || []
+    rescue Errno::ECONNRESET
+      [CarrierTimeout.new("USPS")]
+    end
+      
     rates = usps_rates + ups_rates
     
     return rates
