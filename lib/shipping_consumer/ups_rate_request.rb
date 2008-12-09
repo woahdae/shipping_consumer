@@ -92,8 +92,7 @@ class UPSRateRequest < Consumer::Request
   
   # UPS-Specific types
   
-  ### Begin shipping codes. From page 99 of the doc PDF.
-  
+  ### From page 99 of the doc PDF.
   SERVICE_CODES = {
     "US Domestic" => {
       "01" => "UPS Next Day Air",
