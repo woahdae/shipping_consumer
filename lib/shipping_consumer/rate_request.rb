@@ -17,7 +17,7 @@ class RateRequest
 
   # Returns a single Rate for a given carrier and code
   def self.get(carrier, code, shipping_params = {})
-    "#{carrier}RateRequest".constantize.do(shipping_params)
+    "#{carrier}RateRequest".constantize.do(shipping_params.merge(:code => code)).first
   end
 
   ##
