@@ -19,7 +19,8 @@ describe RateRequest do
         $DEBUG = true
         rates = RateRequest.get_multiple({
           :country => "CA",
-          :weight => "5.6"
+          :weight => "5.6",
+          :zip => "N1R7J5"
         })
         
         rates.size.should_not be_blank
