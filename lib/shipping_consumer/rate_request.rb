@@ -31,21 +31,18 @@ class RateRequest
   # [+:zip+]     Destination zip. Required for US shipments.
   # [+:weight+]  Weight in pounds. Always Required.
   # [+:country+] Two-digit country code (ex "US"). Always Required.
-  def self.get_multiple(shipping_params = {}, use_service_ids = false)
-    ups_rates = begin
-      UPSRateRequest.do(shipping_params) || []
-    rescue Errno::ECONNRESET
-      [CarrierTimeout.new("UPS")]
+  def self.get_multiple(shipping_params = {}, carriers = nil)
+    carriers ||= ["USPS","UPS","Fedex"]
+    rates = []
+
+    carriers.each do |carrier|
+      rates += begin
+        "#{carrier}RateRequest".constantize.do(shipping_params) || []
+      rescue Errno::ECONNRESET, Errno::ETIMEDOUT
+        [CarrierTimeout.new(carrier)]
+      end
     end
-    
-    usps_rates = begin
-      USPSRateRequest.do(shipping_params) || []
-    rescue Errno::ECONNRESET
-      [CarrierTimeout.new("USPS")]
-    end
-      
-    rates = usps_rates + ups_rates
-    
+
     return rates
   end
   

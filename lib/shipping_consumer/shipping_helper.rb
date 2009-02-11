@@ -32,14 +32,18 @@ module ShippingConsumer
       return result
     end
     
-    def self.services_by_carrier
-      carriers = {}
-      Service::SERVICE_IDS.each do |id,service|
-        carriers[service[:carrier]] ||= []
-        carriers[service[:carrier]] << Service.new(service.merge(:id => id))
+    def self.services_by_carrier(carriers = nil)
+      carriers ||= ["UPS","USPS","Fedex"]
+      carriers_hash = {}
+      carriers.each do |carrier|
+        carriers_hash[carrier] = []
       end
       
-      return carriers
+      Service::SERVICE_IDS.each do |id,service|
+        carriers_hash[service[:carrier]] << Service.new(service.merge(:id => id)) unless carriers_hash[service[:carrier]].nil?
+      end
+      
+      return carriers_hash
     end
 
     def self.services_by_carrier_and_context(services_by_carrier_hash = nil)
@@ -50,7 +54,7 @@ module ShippingConsumer
           contexts[service[:context]] ||= []
           contexts[service[:context]] << service
         end
-        
+        debugger
         contexts.values.each {|services| services.sort! {|a,b| a[:name] <=> b[:name]}}
         services_by_carrier_hash[carrier] = contexts
       end

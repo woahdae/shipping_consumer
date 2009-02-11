@@ -8,15 +8,12 @@ class Rate
     # :service => "Service",
     :code => "Service/Code"
   }) do |instance, node|
-    
-    country_info = node.find_first("//RatingServiceSelectionResponse/Response/TransactionReference/CustomerContext").content
-    country_info =~ /(\w+) to (\w+)/
-    origin = $1
-    destination = $2
-
-    instance.context = UPSRateRequest.context_from_code(origin, destination, instance.code)
-    instance.name = UPSRateRequest.service_name_from_code(origin, destination, instance.code, instance.context)
     instance.carrier = "UPS"
+
+    origin, destination = country_info_from_custom_element(node, "//RatingServiceSelectionResponse/Response/TransactionReference/CustomerContext")
+
+    instance.context = UPSRateRequest.context(origin, destination)
+    instance.name = UPSRateRequest.service_name_from_code(origin, destination, instance.code, instance.context)
     instance.service_id = instance.service.id
   end
 
@@ -41,7 +38,19 @@ class Rate
     instance.context = "International"
     instance.service_id = instance.service.id
   end
-
+  
+  # Fedex
+  map(:all, "//v5:RateReplyDetails", {
+    :price => "v5:RatedShipmentDetails/v5:ShipmentRateDetail/v5:TotalNetCharge/v5:Amount",
+    :name  => "v5:ServiceType",
+    :code  => "v5:ServiceType"
+  }) do |instance, node|
+    instance.carrier = "Fedex"
+    origin, destination = country_info_from_custom_element(node, "//v5:TransactionDetail/v5:CustomerTransactionId")
+    instance.context = FedexRateRequest.context(origin, destination)
+    instance.service_id = instance.service.id
+  end
+  
   def service
     @service ||= Service.find(self.service_id)
     @service ||= Service.find_by_attributes(
@@ -51,7 +60,13 @@ class Rate
     )
   end
   
-  # FedEx
-  # map()
+  def self.country_info_from_custom_element(node, xpath)
+    country_info = node.find_first(xpath).content
+    country_info =~ /(\w+) to (\w+)/
+    origin = $1
+    destination = $2
+    
+    return origin, destination
+  end
 end
 

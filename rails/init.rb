@@ -1,1 +1,1 @@
-require 'lib/shipping_consumer'
+require 'shipping_consumer'

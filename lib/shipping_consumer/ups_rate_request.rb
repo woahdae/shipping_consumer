@@ -41,7 +41,7 @@ class UPSRateRequest < Consumer::Request
       :country,
       :weight
     ]
-    
+
     ret += [:zip, :sender_zip] if !self.international?
   end
   
@@ -184,7 +184,7 @@ class UPSRateRequest < Consumer::Request
     }
   }
   
-  def self.context_from_code(origin, destination, code)
+  def self.context(origin, destination)
     context = case origin
     when "US"
       destination == "US" ? 'US Domestic' : 'US Origin'
@@ -206,12 +206,12 @@ class UPSRateRequest < Consumer::Request
   end
   
   def self.service_name_from_code(origin, destination, code, context = nil)
-    context ||= context_from_code(origin, destination, code)
+    context ||= context(origin, destination)
     return SERVICE_CODES[context][code]
   end
   
   def self.service_from_code(origin, destination, code)
-    context = context_from_code(origin, destination, code)
+    context = context(origin, destination)
     return Service.find_by_attributes(
       :carrier => "UPS",
       :context => context,
@@ -338,7 +338,7 @@ class UPSRateRequest < Consumer::Request
   end
   
   def international?
-    (@sender_country && @sender_country != 'US') && (@country && @country != "US")
+    @country && @country != "US"
   end
   
 end

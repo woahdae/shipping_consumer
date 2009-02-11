@@ -10,5 +10,12 @@ ups:
 usps:
   user_id: uspsuser
 fedex:
-  fedex_account:
-  fedex_url:
+  account_number:
+  password:
+  key:
+  meter_number:
+  test_account_number: 
+  test_password: 
+  test_key: 
+  test_meter_number: 
+  
