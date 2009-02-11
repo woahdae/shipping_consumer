@@ -50,11 +50,12 @@ module ShippingConsumer
       services_by_carrier_hash = services_by_carrier_hash ? services_by_carrier_hash.dup : self.services_by_carrier
       services_by_carrier_hash.each do |carrier, services|
         contexts = {}
+
         services.each do |service|
           contexts[service[:context]] ||= []
           contexts[service[:context]] << service
         end
-        debugger
+
         contexts.values.each {|services| services.sort! {|a,b| a[:name] <=> b[:name]}}
         services_by_carrier_hash[carrier] = contexts
       end
