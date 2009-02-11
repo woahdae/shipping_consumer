@@ -176,7 +176,7 @@
   :name: UPS Express
 36: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: EU Origin
   :name: UPS Expedited
 37: 
@@ -241,7 +241,7 @@
   :name: UPS Express
 49: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Other International Origin
   :name: UPS Worldwide Expedited
 50: 
@@ -291,7 +291,7 @@
   :name: UPS Worldwide Express
 59: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Canada Origin
   :name: UPS Worldwide Expedited
 60: 
@@ -341,7 +341,7 @@
   :name: UPS Today Express Saver
 69: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Polish Domestic
   :name: UPS Expedited
 70: 
@@ -361,7 +361,7 @@
   :name: UPS Express
 73: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Mexico Origin
   :name: UPS Expedited
 74: 
@@ -409,6 +409,36 @@
   :code: "11"
   :context: US Origin
   :name: UPS Standard
+83: 
+  :carrier: UPS
+  :code: "12"
+  :context: US Origin
+  :name: UPS Three-Day Select
+84: 
+  :carrier: UPS
+  :code: "01"
+  :context: US Origin
+  :name: UPS Next Day Air
+85: 
+  :carrier: UPS
+  :code: "02"
+  :context: US Origin
+  :name: UPS Second Day Air
+86: 
+  :carrier: UPS
+  :code: "14"
+  :context: US Origin
+  :name: UPS Next Day Air Early A.M.
+87: 
+  :carrier: UPS
+  :code: "03"
+  :context: US Origin
+  :name: UPS Ground
+88: 
+  :carrier: UPS
+  :code: "59"
+  :context: US Origin
+  :name: UPS Second Day Air A.M.
 89: 
   :carrier: UPS
   :code: "07"
@@ -416,9 +446,14 @@
   :name: UPS Worldwide Express
 90: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: US Origin
   :name: UPS Worldwide Expedited
+91: 
+  :carrier: UPS
+  :code: "65"
+  :context: US Origin
+  :name: UPS Saver
 92: 
   :carrier: UPS
   :code: "54"
@@ -451,7 +486,7 @@
   :name: UPS Worldwide Express
 98: 
   :carrier: UPS
-  :code: 08
+  :code: "08"
   :context: Puerto Rico Origin
   :name: UPS Worldwide Expedited
 99: 
