@@ -18,23 +18,23 @@ describe FedexRateRequest do
       $DEBUG = true # spit out xml for the request & response
       
       fedex_rate = FedexRateRequest.new({
-        :weight => "5.6",
+        :weight => "0.005",
         :zip => "98105"
       }).do
       fedex_rate.should_not be_blank
     end
 
-    it "should get live international rates" do
-      $DEBUG = true
-      rates = FedexRateRequest.new({
-        :weight => "5.6",
-        # :country => "BR",
-        # :zip => "40301-110"
-        :country => "CA",
-        :zip => "N1R7J5"
-      }).do
-      rates.should_not be_blank
-    end
+    # it "should get live international rates" do
+    #   $DEBUG = true
+    #   rates = FedexRateRequest.new({
+    #     :weight => "5.6",
+    #     # :country => "BR",
+    #     # :zip => "40301-110"
+    #     :country => "CA",
+    #     :zip => "N1R7J5"
+    #   }).do
+    #   rates.should_not be_blank
+    # end
 
   end
 

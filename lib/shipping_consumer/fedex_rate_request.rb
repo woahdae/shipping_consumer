@@ -68,6 +68,8 @@ class FedexRateRequest < Consumer::Request
       @key            = @test_key
       @password       = @test_password
     end
+    
+    @weight = '1.0' if @weight.to_f < 1.0
   end
 
   def to_xml
