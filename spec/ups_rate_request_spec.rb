@@ -5,7 +5,7 @@ describe UPSRateRequest do
     @request = UPSRateRequest.new({
       :weight => "5.6",
       :country => "US",
-      :zip => "98682"
+      :zip => "98105"
     })
   end
 
