@@ -19,8 +19,9 @@ describe FedexRateRequest do
       
       fedex_rate = FedexRateRequest.new({
         :weight => "0.005",
-        :zip => "98105"
+        :zip => "98125"
       }).do
+      # fedex_rate.each {|rate| puts rate.name + ": " + rate.price};0
       fedex_rate.should_not be_blank
     end
 

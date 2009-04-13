@@ -41,7 +41,7 @@ class Rate
   
   # Fedex
   map(:all, "//v5:RateReplyDetails", {
-    :price => "v5:RatedShipmentDetails/v5:ShipmentRateDetail/v5:TotalNetCharge/v5:Amount",
+    :price => "v5:RatedShipmentDetails/v5:ShipmentRateDetail/v5:TotalBaseCharge/v5:Amount",
     :name  => "v5:ServiceType",
     :code  => "v5:ServiceType"
   }) do |instance, node|
